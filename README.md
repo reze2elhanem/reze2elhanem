@@ -2,18 +2,31 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة</title>
-    <meta name="description" content="رزق الهانم empowers rural women through clothing upcycling, training and sustainable income. Volunteer, donate or partner.">
+    <meta name="description" content="رزق الهانم - ندرب النساء في ريف مصر على إعادة تدوير المنسوجات وكسب دخل ثابت. تبرع، تطوع، أو كن شريكًا.">
     
-    <!-- Fonts -->
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
+    <!-- الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* Reset كامل */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
         :root {
             --bg-1: #F7EFE6;
             --bg-2: #FFF9F4;
@@ -25,28 +38,15 @@
             --white: #FFFFFF;
             --success: #2EAC6A;
             --shadow: rgba(46,46,46,0.08);
-            
-            --container-width: 1200px;
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 32px;
-            --spacing-xl: 48px;
-            --spacing-xxl: 64px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
             background-color: var(--bg-1);
             color: var(--text-dark);
             line-height: 1.6;
@@ -54,6 +54,7 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            -webkit-overflow-scrolling: touch;
         }
 
         body[dir="ltr"] {
@@ -61,19 +62,21 @@
             direction: ltr;
         }
 
+        /* الحاوية */
         .container {
-            max-width: var(--container-width);
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--spacing-sm);
+            padding: 0 1rem;
         }
 
-        @media (min-width: 640px) {
+        @media (min-width: 768px) {
             .container {
-                padding: 0 var(--spacing-md);
+                padding: 0 2rem;
             }
         }
 
-        /* Header Styles */
+        /* الهيدر */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 20px var(--shadow);
@@ -81,33 +84,26 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            height: 70px;
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--spacing-sm) 0;
             height: 70px;
+            padding: 0 1rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            z-index: 1001;
+            gap: 0.75rem;
         }
 
         .logo-svg {
             width: 40px;
             height: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .logo-svg {
-                width: 50px;
-                height: 50px;
-            }
         }
 
         .logo-path {
@@ -119,106 +115,109 @@
         }
 
         @keyframes draw {
-            to {
-                stroke-dashoffset: 0;
-            }
+            to { stroke-dashoffset: 0; }
         }
 
         .logo-text {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--primary-brown);
-            margin-right: var(--spacing-sm);
         }
 
-        @media (min-width: 768px) {
-            .logo-text {
-                font-size: 1.5rem;
-            }
+        /* القائمة */
+        .desktop-nav {
+            display: none;
         }
 
-        nav {
-            transition: all 0.3s ease;
+        .mobile-menu {
+            display: block;
         }
 
-        nav ul {
+        .hamburger {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-dark);
+            width: 44px;
+            height: 44px;
             display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            height: 100vh;
+            background: var(--white);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding: 2rem;
+            box-shadow: -5px 0 15px var(--shadow);
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav ul {
             list-style: none;
-            gap: var(--spacing-md);
+            margin-top: 3rem;
         }
 
-        @media (max-width: 767px) {
-            nav {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--white);
-                transition: right 0.3s ease;
-                padding: var(--spacing-xl);
-                box-shadow: -5px 0 15px var(--shadow);
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: var(--spacing-lg);
-                text-align: center;
-            }
-            
-            nav a {
-                font-size: 1.1rem;
-                padding: var(--spacing-sm) 0;
-                display: block;
-            }
+        .mobile-nav li {
+            margin-bottom: 1.5rem;
         }
 
-        nav a {
+        .mobile-nav a {
             text-decoration: none;
             color: var(--text-dark);
+            font-size: 1.1rem;
             font-weight: 600;
+            display: block;
+            padding: 0.75rem 0;
             transition: color 0.3s ease;
-            position: relative;
         }
 
-        nav a:hover {
+        .mobile-nav a:hover {
             color: var(--primary-brown);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-brown);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: var(--spacing-md);
+            gap: 1rem;
         }
 
         .language-toggle {
             background: none;
             border: 1px solid var(--accent-sand);
-            padding: var(--spacing-xs) var(--spacing-sm);
+            padding: 0.5rem 1rem;
             border-radius: 4px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: var(--spacing-xs);
+            gap: 0.5rem;
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
@@ -227,52 +226,54 @@
             background-color: var(--accent-sand);
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-            width: 30px;
-            height: 30px;
-            justify-content: center;
-            z-index: 1001;
-        }
-
-        @media (max-width: 767px) {
-            .hamburger {
+        @media (min-width: 768px) {
+            .desktop-nav {
                 display: flex;
+                gap: 2rem;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .desktop-nav a {
+                text-decoration: none;
+                color: var(--text-dark);
+                font-weight: 600;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+
+            .desktop-nav a:hover {
+                color: var(--primary-brown);
+            }
+
+            .desktop-nav a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                right: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary-brown);
+                transition: width 0.3s ease;
+            }
+
+            .desktop-nav a:hover::after {
+                width: 100%;
             }
         }
 
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-dark);
-            transition: all 0.3s ease;
-            transform-origin: center;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* Hero Section */
+        /* الهيرو */
         .hero {
             background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
-            padding: calc(var(--spacing-xxl) + 70px) 0 var(--spacing-xxl);
+            padding: 6rem 1rem 3rem;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            margin-top: 70px;
         }
 
         .hero-background {
@@ -295,75 +296,35 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s ease 0.3s forwards;
             width: 100%;
         }
 
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .hero h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 1rem;
             color: var(--primary-brown);
-            line-height: 1.2;
-        }
-
-        @media (min-width: 640px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
+            line-height: 1.3;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--muted);
-            margin-bottom: var(--spacing-xl);
-            max-width: 600px;
-            margin-right: auto;
-            margin-left: auto;
+            margin-bottom: 2rem;
             line-height: 1.6;
-        }
-
-        @media (min-width: 640px) {
-            .hero p {
-                font-size: 1.25rem;
-            }
         }
 
         .hero-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
-            max-width: 500px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        @media (min-width: 640px) {
-            .hero-stats {
-                grid-template-columns: repeat(4, 1fr);
-                gap: var(--spacing-xl);
-            }
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 400px;
         }
 
         .stat {
             text-align: center;
-            padding: var(--spacing-sm);
+            padding: 1rem;
         }
 
         .stat-number {
@@ -371,50 +332,25 @@
             font-weight: 700;
             color: var(--primary-brown);
             display: block;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        @media (min-width: 640px) {
-            .stat-number {
-                font-size: 2rem;
-            margin-bottom: var(--spacing-xs);
-            line-height: 1;
-            min-height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
             font-size: 0.85rem;
             color: var(--muted);
-            line-height: 1.2;
-        }
-
-        @media (min-width: 640px) {
-            .stat-label {
-                font-size: 0.9rem;
-            }
         }
 
         .cta-buttons {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-md);
+            gap: 1rem;
             justify-content: center;
             align-items: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        @media (min-width: 640px) {
-            .cta-buttons {
-                flex-direction: row;
-            }
+            margin: 2rem 0;
         }
 
         .btn {
-            padding: var(--spacing-md) var(--spacing-xl);
+            padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
             font-size: 1rem;
@@ -425,17 +361,10 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
             min-width: 200px;
-            min-height: 56px;
-        }
-
-        @media (max-width: 639px) {
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
+            min-height: 54px;
+            width: 100%;
+            max-width: 280px;
         }
 
         .btn-primary {
@@ -446,7 +375,6 @@
         .btn-primary:hover {
             background-color: #7a5235;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--shadow);
         }
 
         .btn-secondary {
@@ -466,45 +394,76 @@
             color: var(--white);
             cursor: not-allowed;
             opacity: 0.6;
-            transform: none !important;
         }
 
         .btn-disabled:hover {
-            background-color: var(--muted);
-            color: var(--white);
             transform: none !important;
-            box-shadow: none !important;
         }
 
         .hero-micro {
             font-size: 0.9rem;
             color: var(--muted);
-            margin-top: var(--spacing-md);
+            margin-top: 1rem;
         }
 
-        /* Sections Common Styles */
+        @media (min-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .btn {
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 8rem 2rem 4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 600px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* السيكشنز العامة */
         section {
-            padding: var(--spacing-xxl) 0;
-            position: relative;
+            padding: 4rem 1rem;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
-            padding: 0 var(--spacing-sm);
+            margin-bottom: 3rem;
         }
 
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             color: var(--primary-brown);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.2;
-        }
-
-        @media (min-width: 768px) {
-            .section-header h2 {
-                font-size: 2.5rem;
-            }
+            margin-bottom: 1rem;
         }
 
         .section-header p {
@@ -512,16 +471,23 @@
             color: var(--muted);
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.6;
         }
 
         @media (min-width: 768px) {
+            section {
+                padding: 5rem 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
             .section-header p {
                 font-size: 1.1rem;
             }
         }
 
-        /* Volunteer Section */
+        /* سيكشن التطوع */
         .volunteer {
             background-color: var(--bg-2);
         }
@@ -529,34 +495,20 @@
         .volunteer-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
-            align-items: start;
-        }
-
-        @media (min-width: 1024px) {
-            .volunteer-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            gap: 2rem;
         }
 
         .benefits-grid {
             display: grid;
-            gap: var(--spacing-md);
+            gap: 1rem;
         }
 
         .benefit-card {
             background: var(--white);
-            padding: var(--spacing-lg);
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 15px var(--shadow);
             transition: transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .benefit-card.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .benefit-card:hover {
@@ -565,24 +517,39 @@
 
         .benefit-card h4 {
             color: var(--primary-brown);
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
 
+        .volunteer-cta {
+            background: var(--primary-brown);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .volunteer-cta .btn {
+            background: var(--white);
+            color: var(--primary-brown);
+            margin-top: 1rem;
+        }
+
         .faq-list {
-            margin-top: var(--spacing-lg);
+            margin-top: 2rem;
         }
 
         .faq-item {
             background: var(--white);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 1rem;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 8px var(--shadow);
         }
 
         .faq-question {
-            padding: var(--spacing-md);
+            padding: 1.5rem;
             background: var(--accent-sand);
             font-weight: 600;
             cursor: pointer;
@@ -590,67 +557,44 @@
             justify-content: space-between;
             align-items: center;
             font-size: 1rem;
-            min-height: 60px;
         }
 
         .faq-answer {
-            padding: var(--spacing-md);
+            padding: 1.5rem;
             display: none;
-            font-size: 0.95rem;
-            line-height: 1.6;
         }
 
         .faq-item.active .faq-answer {
             display: block;
         }
 
-        .volunteer-cta {
-            background: var(--primary-brown);
-            color: white;
-            padding: var(--spacing-lg);
-            border-radius: 12px;
-            margin-bottom: var(--spacing-lg);
-            text-align: center;
+        @media (min-width: 1024px) {
+            .volunteer-content {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
-        .volunteer-cta .btn {
-            background: var(--white);
-            color: var(--primary-brown);
-            margin-top: var(--spacing-md);
-        }
-
-        /* Donate Section */
+        /* سيكشن التبرع */
         .donate-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        @media (max-width: 639px) {
-            .donate-options {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .donate-option {
             background: var(--white);
-            padding: var(--spacing-lg);
+            padding: 1.5rem;
             border-radius: 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .donate-option:hover {
             transform: translateY(-5px);
             border-color: var(--primary-brown);
-            box-shadow: 0 8px 20px var(--shadow);
         }
 
         .donate-option.selected {
@@ -662,50 +606,47 @@
             font-size: 1.75rem;
             font-weight: 700;
             color: var(--primary-brown);
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0.5rem;
         }
 
         .purpose {
             font-size: 0.9rem;
             color: var(--muted);
-            line-height: 1.4;
         }
 
         .coming-soon {
             text-align: center;
-            padding: var(--spacing-xl);
+            padding: 2rem;
             background: var(--bg-2);
             border-radius: 12px;
-            margin: var(--spacing-lg) 0;
+            margin: 2rem 0;
         }
 
         .coming-soon i {
             font-size: 2.5rem;
             color: var(--accent-green);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 1rem;
         }
 
         .coming-soon h3 {
             font-size: 1.5rem;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 1rem;
             color: var(--primary-brown);
         }
 
         .breakdown {
             background: var(--white);
-            padding: var(--spacing-lg);
+            padding: 1.5rem;
             border-radius: 12px;
-            max-width: 500px;
             margin: 0 auto;
         }
 
         .breakdown-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: var(--spacing-sm);
-            padding-bottom: var(--spacing-sm);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid var(--accent-sand);
-            font-size: 0.95rem;
         }
 
         .breakdown-item:last-child {
@@ -713,7 +654,17 @@
             margin-bottom: 0;
         }
 
-        /* About Section */
+        @media (min-width: 768px) {
+            .donate-options {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .breakdown {
+                max-width: 500px;
+            }
+        }
+
+        /* سيكشن عنّا */
         .about {
             background-color: var(--bg-2);
         }
@@ -721,14 +672,7 @@
         .story-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .story-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            gap: 2rem;
         }
 
         .story-text {
@@ -736,17 +680,11 @@
             line-height: 1.8;
         }
 
-        @media (min-width: 768px) {
-            .story-text {
-                font-size: 1.1rem;
-            }
-        }
-
         .quote {
             background: var(--white);
-            padding: var(--spacing-lg);
+            padding: 1.5rem;
             border-right: 4px solid var(--primary-brown);
-            margin: var(--spacing-lg) 0;
+            margin: 1.5rem 0;
             font-style: italic;
             border-radius: 0 8px 8px 0;
             font-size: 1.1rem;
@@ -754,27 +692,14 @@
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-xl);
-        }
-
-        @media (max-width: 639px) {
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .step {
             text-align: center;
-            padding: var(--spacing-lg);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
+            padding: 1.5rem;
         }
 
         .step-number {
@@ -788,84 +713,70 @@
             justify-content: center;
             font-size: 1.25rem;
             font-weight: 700;
-            margin: 0 auto var(--spacing-md);
+            margin: 0 auto 1rem;
         }
 
         @media (min-width: 768px) {
-            .step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+            .story-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
-        /* Impact Section */
+        /* سيكشن التأثير */
         .impact-counters {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        @media (min-width: 640px) {
-            .impact-counters {
-                grid-template-columns: repeat(4, 1fr);
-                gap: var(--spacing-xl);
-            }
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .impact-counter {
             text-align: center;
-            padding: var(--spacing-lg);
+            padding: 1.5rem;
             background: var(--white);
             border-radius: 12px;
             box-shadow: 0 4px 15px var(--shadow);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .impact-counter.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .counter-number {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-brown);
-            margin-bottom: var(--spacing-sm);
-            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         @media (min-width: 768px) {
+            .impact-counters {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+            
             .counter-number {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
         }
 
-        /* Footer */
+        /* الفوتر */
         footer {
             background-color: var(--text-dark);
             color: var(--white);
-            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+            padding: 3rem 1rem 2rem;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        @media (min-width: 640px) {
-            .footer-content {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .footer-section h4 {
             color: var(--accent-sand);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 1rem;
             font-size: 1.25rem;
         }
 
@@ -874,14 +785,13 @@
         }
 
         .footer-links li {
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: 0.5rem;
         }
 
         .footer-links a {
             color: var(--white);
             text-decoration: none;
             transition: color 0.3s ease;
-            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
@@ -890,8 +800,8 @@
 
         .social-links {
             display: flex;
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-link {
@@ -916,59 +826,36 @@
             color: var(--white);
         }
 
-        .social-tooltip {
-            position: absolute;
-            bottom: -40px;
-            right: 50%;
-            transform: translateX(50%);
-            background: var(--text-dark);
-            color: var(--white);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover .social-tooltip {
-            opacity: 1;
-            visibility: visible;
-            bottom: -35px;
-        }
-
         .footer-bottom {
             text-align: center;
-            padding-top: var(--spacing-lg);
+            padding-top: 2rem;
             border-top: 1px solid var(--muted);
             color: var(--accent-sand);
-            font-size: 0.9rem;
         }
 
-        /* Mobile CTA */
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* CTA الموبايل */
         .mobile-cta {
-            display: none;
+            display: block;
             position: fixed;
             bottom: 0;
             right: 0;
             width: 100%;
             background: var(--white);
-            padding: var(--spacing-sm);
+            padding: 1rem;
             box-shadow: 0 -2px 20px var(--shadow);
             z-index: 999;
-        }
-
-        @media (max-width: 767px) {
-            .mobile-cta {
-                display: block;
-            }
         }
 
         .mobile-cta-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-sm);
+            gap: 1rem;
         }
 
         .mobile-cta .btn {
@@ -976,7 +863,13 @@
             font-size: 0.9rem;
         }
 
-        /* Tooltip */
+        @media (min-width: 768px) {
+            .mobile-cta {
+                display: none;
+            }
+        }
+
+        /* التلميحات */
         .tooltip {
             position: relative;
             display: inline-block;
@@ -1003,7 +896,7 @@
             transform: translateX(50%);
             background: var(--text-dark);
             color: var(--white);
-            padding: var(--spacing-sm);
+            padding: 0.5rem;
             border-radius: 6px;
             font-size: 0.8rem;
             width: 200px;
@@ -1018,7 +911,7 @@
             visibility: visible;
         }
 
-        /* Loading and Transitions */
+        /* الأنيميشن */
         .content-transition {
             transition: transform 0.25s ease;
         }
@@ -1027,7 +920,7 @@
             transform: rotateY(90deg);
         }
 
-        /* Ensure proper spacing for fixed header */
+        /* إصلاح المسافات للهيدر الثابت */
         .section-anchor {
             position: relative;
             top: -80px;
@@ -1035,7 +928,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- الهيدر -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -1046,32 +939,42 @@
                     <span class="logo-text">رزق الهانم</span>
                 </div>
                 
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#volunteer">التطوع</a></li>
-                        <li><a href="#donate">التبرع</a></li>
-                        <li><a href="#about">عنّا</a></li>
-                        <li><a href="#impact">التأثير</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
+                <!-- القائمة للكمبيوتر -->
+                <nav class="desktop-nav">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#volunteer">التطوع</a>
+                    <a href="#donate">التبرع</a>
+                    <a href="#about">عنّا</a>
+                    <a href="#impact">التأثير</a>
+                    <a href="#contact">اتصل بنا</a>
                 </nav>
                 
                 <div class="header-actions">
                     <button class="language-toggle" id="language-toggle">
                         <span>EN</span>
                     </button>
-                    <div class="hamburger" id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    
+                    <!-- القائمة للجوال -->
+                    <div class="mobile-menu">
+                        <button class="hamburger">☰</button>
+                        <nav class="mobile-nav">
+                            <button class="close-menu">✕</button>
+                            <ul>
+                                <li><a href="#home">الرئيسية</a></li>
+                                <li><a href="#volunteer">التطوع</a></li>
+                                <li><a href="#donate">التبرع</a></li>
+                                <li><a href="#about">عنّا</a></li>
+                                <li><a href="#impact">التأثير</a></li>
+                                <li><a href="#contact">اتصل بنا</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- الهيرو -->
     <section class="hero" id="home">
         <div class="hero-background"></div>
         <div class="container">
@@ -1103,14 +1006,12 @@
                     <a href="#donate" class="btn btn-secondary btn-disabled">تبرع الآن</a>
                 </div>
                 
-                <p class="hero-micro">
-                    بدأنا: 12 أغسطس · 40+ متطوع · 100+ عنصر تبرع
-                </p>
+                <p class="hero-micro">بدأنا: 12 أغسطس · 40+ متطوع · 100+ عنصر تبرع</p>
             </div>
         </div>
     </section>
 
-    <!-- Volunteer Section -->
+    <!-- التطوع -->
     <section class="volunteer" id="volunteer">
         <div class="section-anchor"></div>
         <div class="container">
@@ -1121,7 +1022,7 @@
             
             <div class="volunteer-content">
                 <div>
-                    <h3 style="margin-bottom: var(--spacing-md); color: var(--primary-brown);">فوائد التطوع</h3>
+                    <h3 style="margin-bottom: 1rem; color: var(--primary-brown);">فوائد التطوع</h3>
                     <div class="benefits-grid">
                         <div class="benefit-card">
                             <h4>شهادة مشاركة</h4>
@@ -1148,13 +1049,13 @@
                 
                 <div>
                     <div class="volunteer-cta">
-                        <h3 style="margin-bottom: var(--spacing-sm);">مستعد للانضمام؟ تقدم الآن →</h3>
+                        <h3 style="margin-bottom: 1rem;">مستعد للانضمام؟ تقدم الآن →</h3>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScXk6EimANoKZWZAM8LcPrB4bxW6AnWC1GiwBqCRBS5NhgtPQ/viewform?usp=header" 
                            class="btn" target="_blank">استمارة التطوع</a>
                     </div>
                     
                     <div class="faq-list">
-                        <h3 style="margin-bottom: var(--spacing-md); color: var(--primary-brown);">الأسئلة الشائعة</h3>
+                        <h3 style="margin-bottom: 1rem; color: var(--primary-brown);">الأسئلة الشائعة</h3>
                         
                         <div class="faq-item">
                             <div class="faq-question">
@@ -1191,7 +1092,7 @@
         </div>
     </section>
 
-    <!-- Donate Section -->
+    <!-- التبرع -->
     <section class="donate" id="donate">
         <div class="section-anchor"></div>
         <div class="container">
@@ -1221,14 +1122,12 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-bottom: var(--spacing-xl);">
-                <button class="btn btn-primary btn-disabled" style="padding: var(--spacing-lg) var(--spacing-xxl);">
-                    تبرع الآن
-                </button>
+            <div style="text-align: center; margin: 2rem 0;">
+                <button class="btn btn-primary btn-disabled">تبرع الآن</button>
             </div>
             
             <div class="breakdown">
-                <h3 style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--primary-brown);">أين يذهب تبرعك؟</h3>
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-brown);">أين يذهب تبرعك؟</h3>
                 
                 <div class="breakdown-item">
                     <span>60% — مدفوعات للحرفيات</span>
@@ -1269,7 +1168,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- عنّا -->
     <section class="about" id="about">
         <div class="section-anchor"></div>
         <div class="container">
@@ -1281,15 +1180,13 @@
                 <div class="story-text">
                     <p>"لا أريد ملابس - أريد عملاً"، قالت عزة لنا. هذه الجملة غيرت كل شيء. بدأ رزق الهانم لتحويل هذه الجملة إلى مسار: من صناديق التبرعات إلى فرص مخيطة.</p>
                     
-                    <div class="quote">
-                        "لا أريد ملابس - أريد عملاً"
-                    </div>
+                    <div class="quote">"لا أريد ملابس - أريد عملاً"</div>
                     
                     <p>من خلال التدريب والدعم المستمر، نساعد النساء الريفيات على تحويل الملابس المتبرع بها إلى منتجات ذات قيمة مضافة، مما يوفر مصدر دخل مستدام ومهارات قابلة للتطوير.</p>
                 </div>
                 
                 <div>
-                    <h3 style="margin-bottom: var(--spacing-lg); color: var(--primary-brown); text-align: center;">كيف نعمل</h3>
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-brown); text-align: center;">كيف نعمل</h3>
                     <div class="process-steps">
                         <div class="step">
                             <div class="step-number">1</div>
@@ -1317,7 +1214,7 @@
         </div>
     </section>
 
-    <!-- Impact Section -->
+    <!-- التأثير -->
     <section class="impact" id="impact">
         <div class="section-anchor"></div>
         <div class="container">
@@ -1347,7 +1244,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- الفوتر -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
@@ -1357,11 +1254,9 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/reze2_elhanem?igsh=YzljYTk1ODg3Zg==" class="social-link" target="_blank">
                             <i class="fab fa-instagram"></i>
-                            <span class="social-tooltip">تابعنا على إنستجرام</span>
                         </a>
                         <a href="https://www.linkedin.com/company/reze2-el-hanem/" class="social-link" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
-                            <span class="social-tooltip">تابعنا على لينكد إن</span>
                         </a>
                     </div>
                 </div>
@@ -1390,7 +1285,7 @@
         </div>
     </footer>
 
-    <!-- Mobile CTA -->
+    <!-- CTA الموبايل -->
     <div class="mobile-cta">
         <div class="container">
             <div class="mobile-cta-buttons">
@@ -1401,28 +1296,30 @@
     </div>
 
     <script>
-        // Mobile Navigation
-        const hamburger = document.getElementById('hamburger');
-        const nav = document.getElementById('main-nav');
-
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
+        // القائمة المتنقلة
+        const hamburger = document.querySelector('.hamburger');
+        const closeMenu = document.querySelector('.close-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav a').forEach(link => {
+        
+        closeMenu.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
+                mobileNav.classList.remove('active');
                 document.body.style.overflow = '';
             });
         });
-
-        // Counter Animation
+        
+        // العدادات
         function animateCounter(element, target, duration = 1200) {
             const start = 0;
             const increment = target / (duration / 16);
@@ -1438,33 +1335,20 @@
                 }
             }, 16);
         }
-
-        // Initialize counters when in viewport
+        
         function initCounters() {
-            const volunteersCount = document.getElementById('volunteers-count');
-            const itemsCount = document.getElementById('items-count');
-            const womenCount = document.getElementById('women-count');
-            const workshopsCount = document.getElementById('workshops-count');
-            
-            animateCounter(volunteersCount, 40);
-            animateCounter(itemsCount, 100);
-            animateCounter(womenCount, 20);
-            animateCounter(workshopsCount, 5);
-            
-            // Impact section counters
-            document.getElementById('impact-volunteers').textContent = '40+';
-            document.getElementById('impact-items').textContent = '100+';
-            document.getElementById('impact-women').textContent = '20+';
-            document.getElementById('impact-workshops').textContent = '5+';
+            animateCounter(document.getElementById('volunteers-count'), 40);
+            animateCounter(document.getElementById('items-count'), 100);
+            animateCounter(document.getElementById('women-count'), 20);
+            animateCounter(document.getElementById('workshops-count'), 5);
         }
-
-        // Language Toggle
+        
+        // تبديل اللغة
         document.getElementById('language-toggle').addEventListener('click', function() {
             const body = document.body;
             const isArabic = body.getAttribute('dir') === 'rtl';
             
-            // Animation flip
-            const content = document.querySelector('.content-transition') || document.body;
+            const content = document.body;
             content.classList.add('flipping');
             
             setTimeout(() => {
@@ -1472,70 +1356,46 @@
                     body.setAttribute('dir', 'ltr');
                     body.setAttribute('lang', 'en');
                     this.innerHTML = '<span>AR</span>';
-                    // Update all text content to English here
                     document.querySelector('.logo-text').textContent = 'Rezq El Hanem';
                     document.querySelector('.hero h1').textContent = 'Rezq El Hanem — Turning donated clothes into sustainable livelihoods';
                     document.querySelector('.hero p').textContent = 'We train women in rural Egypt to upcycle textiles and earn steady income. Join us — donate, volunteer, or partner.';
-                    // ... update all other text content
                 } else {
                     body.setAttribute('dir', 'rtl');
                     body.setAttribute('lang', 'ar');
                     this.innerHTML = '<span>EN</span>';
-                    // Update all text content to Arabic here
                     document.querySelector('.logo-text').textContent = 'رزق الهانم';
                     document.querySelector('.hero h1').textContent = 'رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة';
                     document.querySelector('.hero p').textContent = 'نحن ندرب النساء في ريف مصر على إعادة تدوير المنسوجات وكسب دخل ثابت. انضم إلينا - تبرع، تطوع، أو كن شريكًا.';
-                    // ... update all other text content
                 }
                 
                 content.classList.remove('flipping');
             }, 125);
         });
-
-        // FAQ Accordion
+        
+        // الأسئلة الشائعة
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 item.classList.toggle('active');
-                
-                // Toggle plus/minus icon
                 const icon = question.querySelector('span:last-child');
                 icon.textContent = item.classList.contains('active') ? '−' : '+';
             });
         });
-
-        // Donate Option Selection
-        let selectedAmount = 0;
         
+        // خيارات التبرع
         document.querySelectorAll('.donate-option').forEach(option => {
             option.addEventListener('click', function() {
                 document.querySelectorAll('.donate-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 this.classList.add('selected');
-                selectedAmount = parseInt(this.getAttribute('data-amount'));
             });
         });
-
-        // Scroll Animations
-        function checkVisibility() {
-            const elements = document.querySelectorAll('.benefit-card, .step, .impact-counter');
-            
-            elements.forEach(element => {
-                const rect = element.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight - 100;
-                
-                if (isVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Smooth scrolling for anchor links
+        
+        // التنقل السلس
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
@@ -1551,40 +1411,16 @@
                 }
             });
         });
-
-        // Initialize on load
+        
+        // التهيئة
         document.addEventListener('DOMContentLoaded', function() {
             initCounters();
-            checkVisibility();
-            
-            // Add content transition class to body
-            document.body.classList.add('content-transition');
-            
-            // Initialize first donate option as selected
             document.querySelector('.donate-option').click();
             
-            // Disable donation buttons
-            document.querySelectorAll('a[href="#donate"], .btn-secondary').forEach(btn => {
-                if (btn.textContent.includes('تبرع') || btn.textContent.includes('Donate')) {
-                    btn.classList.add('btn-disabled');
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                    });
-                }
+            // تعطيل أزرار التبرع
+            document.querySelectorAll('.btn-disabled').forEach(btn => {
+                btn.addEventListener('click', (e) => e.preventDefault());
             });
-        });
-
-        // Check visibility on scroll
-        window.addEventListener('scroll', checkVisibility);
-
-        // Handle resize
-        window.addEventListener('resize', function() {
-            // Close mobile menu on resize to desktop
-            if (window.innerWidth > 767) {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.style.overflow = '';
-            }
         });
     </script>
 </body>
