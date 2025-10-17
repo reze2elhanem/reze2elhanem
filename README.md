@@ -3,884 +3,1433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رزق الهانم - إعادة تدوير الملابس وتمكين المرأة</title>
-    <img src="https://instagram.faly1-2.fna.fbcdn.net/v/t51.2885-19/527543323_18019665344718964_5192333461726657432_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.faly1-2.fna.fbcdn.net&_nc_cat=104&_nc_oc=Q6cZ2QHWS0s12drF0NbvKJAl-FcV1MkjXyZtpXPJQZY4wCrlFAcX-uJjlT-TqstqCA2W6to&_nc_ohc=toBxsLLV7lIQ7kNvwGCKbF_&_nc_gid=qNAx78IRRAuxgP6Dri9nAw&edm=AHzjunoBAAAA&ccb=7-5&oh=00_Afb2F0ooDh35BR5VK3Sy1zwo19wanA6cOwwHKuNende-Eg&oe=68CB7E9A&_nc_sid=ba8368" alt="">
-    <!-- الخطوط -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة</title>
+    <meta name="description" content="رزق الهانم empowers rural women through clothing upcycling, training and sustainable income. Volunteer, donate or partner.">
     
-    <!-- أيقونات -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #4e3c2e79;
-            --secondary: #E0A96D;
-            --light: #F9F5F0;
-            --dark: #2C1E1A;
+            --bg-1: #F7EFE6;
+            --bg-2: #FFF9F4;
+            --primary-brown: #8B5E3C;
+            --accent-green: #3E7B4E;
+            --accent-sand: #E7CBAF;
+            --text-dark: #2E2E2E;
+            --muted: #6B6B6B;
             --white: #FFFFFF;
+            --success: #2EAC6A;
+            --shadow: rgba(46,46,46,0.08);
+            
+            --container-width: 1200px;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 64px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Cairo', sans-serif;
-            color: #333;
-            background-color: var(--white);
-            overflow-x: hidden;
+            background-color: var(--bg-1);
+            color: var(--text-dark);
+            line-height: 1.6;
+            direction: rtl;
         }
-        
-        body.english {
-            font-family: 'Poppins', sans-serif;
+
+        body[dir="ltr"] {
+            font-family: 'Inter', sans-serif;
             direction: ltr;
         }
-        
-        /* الشريط العلوي */
-        .navbar {
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header Styles */
+        header {
             background-color: var(--white);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 0.8rem 5%;
+            box-shadow: 0 2px 20px var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: var(--spacing-sm) 0;
         }
-        
+
         .logo {
-            height: 50px;
             display: flex;
             align-items: center;
         }
-        
-        .logo img {
-            height: 100%;
+
+        .logo-svg {
+            width: 50px;
+            height: 50px;
         }
-        
-        .nav-links {
+
+        .logo-path {
+            stroke: var(--primary-brown);
+            stroke-width: 2;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 900ms cubic-bezier(.2,.9,.3,1) forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin-right: var(--spacing-sm);
+        }
+
+        nav ul {
             display: flex;
             list-style: none;
+            gap: var(--spacing-lg);
         }
-        
-        .nav-links li {
-            margin: 0 15px;
-        }
-        
-        .nav-links a {
+
+        nav a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-dark);
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             position: relative;
         }
-        
-        .nav-links a:after {
+
+        nav a:hover {
+            color: var(--primary-brown);
+        }
+
+        nav a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             right: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary);
+            background-color: var(--primary-brown);
             transition: width 0.3s ease;
         }
-        
-        .nav-links a:hover:after {
+
+        nav a:hover::after {
             width: 100%;
         }
-        
-        .nav-buttons {
+
+        .header-actions {
             display: flex;
             align-items: center;
+            gap: var(--spacing-md);
         }
-        
+
         .language-toggle {
             background: none;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
+            border: 1px solid var(--accent-sand);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 4px;
             cursor: pointer;
-            font-family: inherit;
-            font-weight: 600;
-            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
             transition: all 0.3s ease;
         }
-        
+
         .language-toggle:hover {
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: var(--accent-sand);
         }
-        
-        .cta-button {
-            background-color: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
+            gap: 4px;
         }
-        
-        .cta-button:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(78, 52, 46, 0.2);
-        }
-        
-        /* قسم البطل */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(78, 52, 46, 0.7), rgba(78, 52, 46, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%234E342E"/><path d="M0 0L100 100" stroke="%23E0A96D" stroke-width="2"/><path d="M100 0L0 100" stroke="%23E0A96D" stroke-width="2"/></svg>');
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 5%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            z-index: 2;
-            animation: fadeIn 1.5s ease-out;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .secondary-button {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-        
-        .secondary-button:hover {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-        
-        .countdown {
-            margin-top: 3rem;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 1rem;
-            border-radius: 10px;
-            display: inline-block;
-        }
-        
-        .countdown h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .countdown-unit {
-            background-color: var(--primary);
-            padding: 0.5rem;
-            border-radius: 5px;
-            min-width: 60px;
-        }
-        
-        .countdown-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .countdown-label {
-            font-size: 0.8rem;
-        }
-        
-        /* قسم من نحن */
-        .about {
-            padding: 6rem 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            width: 50%;
+
+        .hamburger span {
+            width: 25px;
             height: 3px;
-            background-color: var(--secondary);
-        }
-        
-        .about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-        
-        .features {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .feature {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: var(--light);
+            background-color: var(--text-dark);
             transition: all 0.3s ease;
         }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .feature h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* قسم التطوع */
-        .volunteer {
-            padding: 6rem 5%;
-            background-color: var(--light);
-            text-align: center;
-        }
-        
-        .volunteer-cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 3rem;
-        }
-        
-        .card {
-            background-color: var(--white);
-            border-radius: 15px;
-            padding: 2rem;
-            width: 250px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        /* قسم وسائل التواصل */
-        .social {
-            padding: 6rem 5%;
-            text-align: center;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .social-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background-color: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--primary);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        /* المعرض */
-        .gallery {
-            padding: 6rem 5%;
-            background-color: var(--light);
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 3rem;
-        }
-        
-        .gallery-item {
-            height: 250px;
-            border-radius: 10px;
-            overflow: hidden;
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+            padding: calc(var(--spacing-xxl) * 2) 0 var(--spacing-xxl);
             position: relative;
+            overflow: hidden;
+            margin-top: 80px;
         }
-        
-        .gallery-item img {
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            right: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,30 Q50,10 70,30 T90,30" stroke="%238B5E3C" fill="none" stroke-width="2"/></svg>');
+            animation: moveThread 30s linear infinite;
         }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
+
+        @keyframes moveThread {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(100px); }
         }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            background: linear-gradient(transparent, rgba(78, 52, 46, 0.8));
-            color: var(--white);
-            padding: 20px;
-            transform: translateY(100%);
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-brown);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-        
-        /* التذييل */
-        .footer {
-            background-color: var(--dark);
+
+        .btn-primary {
+            background-color: var(--primary-brown);
             color: var(--white);
-            padding: 4rem 5% 2rem;
         }
-        
-        .footer-content {
+
+        .btn-primary:hover {
+            background-color: #7a5235;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-brown);
+            border: 2px solid var(--primary-brown);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-brown);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-disabled {
+            background-color: var(--muted);
+            color: var(--white);
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none !important;
+        }
+
+        .btn-disabled:hover {
+            background-color: var(--muted);
+            color: var(--white);
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Sections Common Styles */
+        section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Volunteer Section */
+        .volunteer {
+            background-color: var(--bg-2);
+        }
+
+        .volunteer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h4 {
+            color: var(--primary-brown);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .faq-list {
+            margin-top: var(--spacing-lg);
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: var(--spacing-sm);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .faq-question {
+            padding: var(--spacing-md);
+            background: var(--accent-sand);
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
+            align-items: center;
         }
-        
-        .footer-logo {
+
+        .faq-answer {
+            padding: var(--spacing-md);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Donate Section */
+        .donate-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .donate-option {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .donate-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-brown);
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+        .donate-option.selected {
+            border-color: var(--primary-brown);
+            background-color: var(--bg-2);
+        }
+
+        .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .purpose {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .custom-amount {
+            display: flex;
+            gap: var(--spacing-sm);
+            max-width: 400px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .custom-amount input {
             flex: 1;
-            min-width: 250px;
+            padding: var(--spacing-md);
+            border: 2px solid var(--accent-sand);
+            border-radius: 8px;
+            font-size: 1rem;
         }
-        
-        .footer-logo img {
+
+        .breakdown {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--accent-sand);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: var(--spacing-xl);
+            background: var(--bg-2);
+            border-radius: 12px;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .coming-soon i {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-2);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .quote {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-right: 4px solid var(--primary-brown);
+            margin: var(--spacing-lg) 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .step {
+            text-align: center;
+            padding: var(--spacing-lg);
+        }
+
+        .step-number {
+            width: 60px;
             height: 60px;
-            margin-bottom: 1rem;
+            background: var(--primary-brown);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto var(--spacing-md);
         }
-        
+
+        /* Impact Section */
+        .impact-counters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .impact-counter {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Partners Section - Temporarily Hidden */
+        .partners {
+            display: none;
+            background-color: var(--bg-2);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .partner-logo {
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: var(--spacing-xxl) 0 var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--accent-sand);
+            margin-bottom: var(--spacing-md);
+        }
+
         .footer-links {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-links h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .footer-links h3:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            width: 50%;
-            height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        .footer-links ul {
             list-style: none;
         }
-        
+
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: var(--spacing-xs);
         }
-        
+
         .footer-links a {
-            color: #ccc;
+            color: var(--white);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-sand);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-link:hover {
+            background: var(--accent-green);
+            transform: translateY(-3px);
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .social-tooltip {
+            position: absolute;
+            bottom: -40px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--text-dark);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
         }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-right: 5px;
-        }
-        
-        .footer-bottom {
-            margin-top: 3rem;
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* الحركات والتفاعلات */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .animated {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .in-view {
+
+        .social-link:hover .social-tooltip {
             opacity: 1;
-            transform: translateY(0);
+            visibility: visible;
+            bottom: -35px;
         }
-        
-        /* التجاوب مع الشاشات */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            .nav-links {
-                margin-top: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-links li {
-                margin: 5px 10px;
-            }
-            
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--muted);
+            color: var(--accent-sand);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.2s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1.2rem;
+            .volunteer-content,
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
             }
             
-            .hero-buttons {
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: var(--spacing-md);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
                 flex-direction: column;
-                gap: 15px;
+                gap: var(--spacing-sm);
             }
             
-            .about, .footer-content {
-                flex-direction: column;
+            .hamburger {
+                display: flex;
             }
             
-            .section-title {
+            .hero h1 {
                 font-size: 2rem;
             }
             
-            .volunteer-cards {
-                gap: 20px;
+            .hero-stats {
+                gap: var(--spacing-lg);
             }
             
-            .card {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .impact-counters {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-        
-        /* نمط اللغة الإنجليزية */
-        body.english .section-title:after {
-            right: auto;
-            left: 0;
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .impact-counters {
+                grid-template-columns: 1fr;
+            }
+            
+            .donate-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
         }
-        
-        body.english .footer-links h3:after {
-            right: auto;
-            left: 0;
+
+        /* Language Toggle Animation */
+        .content-transition {
+            transition: transform 0.25s ease;
         }
-        
-        body.english .footer-links a:hover {
-            padding-right: 0;
-            padding-left: 5px;
+
+        .content-transition.flipping {
+            transform: rotateY(90deg);
+        }
+
+        /* Sticky Mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            background: var(--white);
+            padding: var(--spacing-sm);
+            box-shadow: 0 -2px 20px var(--shadow);
+            z-index: 1000;
+        }
+
+        .mobile-cta-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: block;
+            }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .tooltip-icon {
+            background: var(--accent-sand);
+            color: var(--text-dark);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: help;
+        }
+
+        .tooltip-text {
+            position: absolute;
+            bottom: 125%;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--text-dark);
+            color: var(--white);
+            padding: var(--spacing-sm);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .tooltip:hover .tooltip-text {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
 <body>
-    <!-- الشريط العلوي -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='50' viewBox='0 0 200 50'><rect width='200' height='50' fill='%234E342E' rx='5'/><text x='100' y='30' font-family='Cairo' font-size='20' fill='%23E0A96D' text-anchor='middle'>رزق الهانم</text></svg>" alt="رزق الهانم">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-svg" viewBox="0 0 100 100">
+                        <path class="logo-path" d="M30,30 Q50,10 70,30 T90,30 M30,50 Q50,30 70,50 T90,50 M30,70 Q50,50 70,70 T90,70" fill="none"/>
+                    </svg>
+                    <span class="logo-text">رزق الهانم</span>
+                </div>
+                
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#volunteer">التطوع</a></li>
+                        <li><a href="#donate">التبرع</a></li>
+                        <li><a href="#about">عنّا</a></li>
+                        <li><a href="#impact">التأثير</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="language-toggle" id="language-toggle">
+                        <span>EN</span>
+                    </button>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <ul class="nav-links">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#about">من نحن</a></li>
-            <li><a href="#volunteer">التطوع</a></li>
-            <li><a href="#gallery">المعرض</a></li>
-            <li><a href="#contact">اتصل بنا</a></li>
-        </ul>
-        
-        <div class="nav-buttons">
-            <button class="language-toggle" id="languageToggle">EN</button>
-            <button class="cta-button">تطوّع معانا</button>
-        </div>
-    </nav>
+    </header>
 
-    <!-- قسم البطل -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>رزق الهانم – بنحوّل الهدوم القديمة لفرص جديدة</h1>
-            <p>معانا… القماش بيتجدّد، والستات حياتهم كمان بتتجدّد.</p>
-            <div class="hero-buttons">
-                <button class="cta-button">تطوّع معانا</button>
-                <button class="secondary-button">اعرف أكتر</button>
-            </div>
-            <div class="countdown">
-                <h3>موعد انتهاء التطوع:</h3>
-                <div class="countdown-timer">
-                    <div class="countdown-unit">
-                        <div class="countdown-number" id="days">15</div>
-                        <div class="countdown-label">أيام</div>
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة</h1>
+                <p>نحن ندرب النساء في ريف مصر على إعادة تدوير المنسوجات وكسب دخل ثابت. انضم إلينا - تبرع، تطوع، أو كن شريكًا.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="volunteers-count">0</span>
+                        <span class="stat-label">متطوع</span>
                     </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-number" id="hours">10</div>
-                        <div class="countdown-label">ساعات</div>
+                    <div class="stat">
+                        <span class="stat-number" id="items-count">0</span>
+                        <span class="stat-label">عنصر تبرع</span>
                     </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-number" id="minutes">25</div>
-                        <div class="countdown-label">دقائق</div>
+                    <div class="stat">
+                        <span class="stat-number" id="women-count">0</span>
+                        <span class="stat-label">امرأة مدربة</span>
                     </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-number" id="seconds">30</div>
-                        <div class="countdown-label">ثواني</div>
+                    <div class="stat">
+                        <span class="stat-number" id="workshops-count">0</span>
+                        <span class="stat-label">ورشة عمل</span>
                     </div>
                 </div>
+                
+                <div class="cta-buttons">
+                    <a href="#volunteer" class="btn btn-primary">تطوع معنا</a>
+                    <a href="#donate" class="btn btn-secondary">تبرع الآن</a>
+                </div>
+                
+                <p style="margin-top: var(--spacing-md); font-size: 0.9rem; color: var(--muted);">
+                    بدأنا: 12 أغسطس · 40+ متطوع · 100+ عنصر تبرع
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- قسم من نحن -->
-    <section class="about" id="about">
-        <div class="about-content">
-            <h2 class="section-title">من نحن</h2>
-            <p>رزق الهانم هي مبادرة تهدف إلى إعادة تدوير الملابس المستعملة وتحويلها إلى منتجات جديدة ذات قيمة، مما يساهم في تمكين السيدات اقتصادياً وحماية البيئة من خلال تقليل النفايات.</p>
-            <p>نحن نؤمن بأن التجديد لا يقتصر على الأقمشة والملابس فقط، بل يمتد ليشمل حياة النساء اللواتي نقوم بتدريبهن وتوظيفهن، مما يمنحهن فرصاً جديدة لتحسين أوضاعهن المعيشية.</p>
-            
-            <div class="features">
-                <div class="feature animated">
-                    <i class="fas fa-recycle"></i>
-                    <h3>إعادة التدوير</h3>
-                </div>
-                <div class="feature animated">
-                    <i class="fas fa-tshirt"></i>
-                    <h3>تمكين المرأة</h3>
-                </div>
-                <div class="feature animated">
-                    <i class="fas fa-globe-africa"></i>
-                    <h3>حماية البيئة</h3>
-                </div>
-            </div>
-        </div>
-        
-        <div class="about-image">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23F9F5F0' rx='10'/><circle cx='150' cy='120' r='70' fill='%23E0A96D'/><rect x='230' y='80' width='120' height='140' fill='%234E342E' rx='10'/></svg>" alt="About Reze2 Elhanem">
-        </div>
-    </section>
-
-    <!-- قسم التطوع -->
+    <!-- Volunteer Section -->
     <section class="volunteer" id="volunteer">
-        <h2 class="section-title">لماذا تنضم إلينا</h2>
-        
-        <div class="volunteer-cards">
-            <div class="card animated">
-                <i class="fas fa-lightbulb"></i>
-                <h3>تعلم مهارات جديدة</h3>
-                <p>اكتسب خبرة في إعادة التدوير والتصميم والخياطة</p>
+        <div class="container">
+            <div class="section-header">
+                <h2>التطوع — كن خيطًا في القصة</h2>
+                <p>ساعد في توسيع نطاق الحل المحلي: اعمل مع النساء الريفيات، وصمم الحملات، وادير ورش العمل، أو ادعم العمليات اللوجستية. لا توجد خبرة مطلوبة - فقط الالتزام.</p>
             </div>
             
-            <div class="card animated">
-                <i class="fas fa-hands-helping"></i>
-                <h3>كون جزء من تغيير حقيقي</h3>
-                <p>ساهم في إحداث تأثير إيجابي في مجتمعك</p>
+            <div class="volunteer-content">
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-md); color: var(--primary-brown);">فوائد التطوع</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <h4>شهادة مشاركة</h4>
+                            <p>بعد إكمال 8 مهام تطوعية</p>
+                        </div>
+                        <div class="benefit-card">
+                            <h4>خطاب توصية</h4>
+                            <p>بعد إكمال 10+ مهام</p>
+                        </div>
+                        <div class="benefit-card">
+                            <h4>ورش عمل عملية</h4>
+                            <p>جلسات مهارات احترافية</p>
+                        </div>
+                        <div class="benefit-card">
+                            <h4>وصول مسبق للأنشطة</h4>
+                            <p>أولوية المشاركة في الفعاليات</p>
+                        </div>
+                        <div class="benefit-card">
+                            <h4>شارة رقمية</h4>
+                            <p>لعرضها على لينكد إن</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="background: var(--primary-brown); color: white; padding: var(--spacing-lg); border-radius: 12px; margin-bottom: var(--spacing-lg); text-align: center;">
+                        <h3 style="margin-bottom: var(--spacing-sm);">مستعد للانضمام؟ تقدم الآن →</h3>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXk6EimANoKZWZAM8LcPrB4bxW6AnWC1GiwBqCRBS5NhgtPQ/viewform?usp=header" 
+                           class="btn" style="background: var(--white); color: var(--primary-brown);">استمارة التطوع</a>
+                    </div>
+                    
+                    <div class="faq-list">
+                        <h3 style="margin-bottom: var(--spacing-md); color: var(--primary-brown);">الأسئلة الشائعة</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>كم من الوقت مطلوب؟</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>مهمة واحدة في الأسبوع؛ جدولة مرنة.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>هل أحتاج إلى خبرة مهنية؟</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>لا. نحن ندرب المتطوعين ونوجههم.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>ما هو مسار الحصول على خطاب التوصية؟</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>أكمل 10+ مهام مثبتة ومشاركة نشطة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section class="donate" id="donate">
+        <div class="container">
+            <div class="section-header">
+                <h2>التبرع — موّل مهارة، غيّر حياة</h2>
+                <p>تدعم الأموال المعدات ومواد ورش العمل والخدمات اللوجستية وميزانية تشغيلية شفافة. كل جنيه يمول التدريب وفرص الدخل.</p>
             </div>
             
-            <div class="card animated">
-                <i class="fas fa-leaf"></i>
-                <h3>ساعد البيئة</h3>
-                <p>قلل من النفايات ودعم الاستدامة البيئية</p>
-            </div>
-            
-            <div class="card animated">
+            <div class="coming-soon">
                 <i class="fas fa-heart"></i>
-                <h3>ادعم السيدات</h3>
-                <p>ساعد في تمكين المرأة economically واجتماعياً</p>
+                <h3>التبرعات الإلكترونية ستكون متاحة قريبًا!</h3>
+                <p>شكرًا لدعمكم 💛</p>
             </div>
-        </div>
-        
-        <button class="cta-button" style="margin-top: 40px;">سجّل دلوقتي</button>
-    </section>
-
-    <!-- قسم وسائل التواصل -->
-    <section class="social" id="social">
-        <h2 class="section-title">تابعنا وكن جزء من الرحلة</h2>
-        
-        <div class="social-icons">
-            <a href="https://www.instagram.com/reze2_elhanem" class="social-icon animated">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/share/1C9T6HNBc5/" class="social-icon animated">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/108305134/admin" class="social-icon animated">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.tiktok.com/@reze2.elhanem" class="social-icon animated">
-                <i class="fab fa-tiktok"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- المعرض -->
-    <section class="gallery" id="gallery">
-        <h2 class="section-title">معرض أعمالنا</h2>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item animated">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23E0A96D'/><circle cx='150' cy='120' r='50' fill='%234E342E'/></svg>" alt="Project 1">
-                <div class="gallery-caption">
-                    <h3>إعادة تدوير الملابس</h3>
+            
+            <div class="donate-options">
+                <div class="donate-option" data-amount="50">
+                    <div class="amount">50 ج.م</div>
+                    <div class="purpose">مواد لمتدربة واحدة</div>
+                </div>
+                <div class="donate-option" data-amount="250">
+                    <div class="amount">250 ج.م</div>
+                    <div class="purpose">إمدادات ورش عمل لأسبوع</div>
+                </div>
+                <div class="donate-option" data-amount="500">
+                    <div class="amount">500 ج.م</div>
+                    <div class="purpose">صيانة ماكينة خياطة وقطع غيار</div>
                 </div>
             </div>
             
-            <div class="gallery-item animated">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='300' height='300' fill='%234E342E'/><polygon points='150,80 220,220 80,220' fill='%23E0A96D'/></svg>" alt="Project 2">
-                <div class="gallery-caption">
-                    <h3>ورش العمل</h3>
-                </div>
+            <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                <button class="btn btn-primary btn-disabled" style="padding: var(--spacing-lg) var(--spacing-xxl);">
+                    تبرع الآن
+                </button>
             </div>
             
-            <div class="gallery-item animated">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23F9F5F0'/><rect x='80' y='100' width='140' height='100' fill='%234E342E' rx='10'/></svg>" alt="Project 3">
-                <div class="gallery-caption">
-                    <h3>المنتجات النهائية</h3>
+            <div class="breakdown">
+                <h3 style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--primary-brown);">أين يذهب تبرعك؟</h3>
+                
+                <div class="breakdown-item">
+                    <span>60% — مدفوعات للحرفيات</span>
+                    <span class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">المبالغ المدفوعة مباشرة للنساء الحرفيات مقابل عملهن</span>
+                    </span>
                 </div>
-            </div>
-            
-            <div class="gallery-item animated">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23E0A96D'/><rect x='100' y='70' width='100' height='160' fill='%234E342E' rx='5'/></svg>" alt="Project 4">
-                <div class="gallery-caption">
-                    <h3>فريق العمل</h3>
+                <div class="breakdown-item">
+                    <span>15% — العمليات والخدمات اللوجستية</span>
+                    <span class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">تكاليف النقل والتخزين وإدارة العمليات</span>
+                    </span>
                 </div>
-            </div>
-            
-            <div class="gallery-item animated">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='300' height='300' fill='%234E342E'/><circle cx='150' cy='150' r='60' fill='%23E0A96D'/></svg>" alt="Project 5">
-                <div class="gallery-caption">
-                    <h3>التدريب</h3>
+                <div class="breakdown-item">
+                    <span>10% — التغليف والتوصيل</span>
+                    <span class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">مواد التغليف وتكاليف الشحن للمنتجات النهائية</span>
+                    </span>
                 </div>
-            </div>
-            
-            <div class="gallery-item animated">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23F9F5F0'/><polygon points='100,100 200,100 150,200' fill='%234E342E'/></svg>" alt="Project 6">
-                <div class="gallery-caption">
-                    <h3>التمكين</h3>
+                <div class="breakdown-item">
+                    <span>10% — التسويق والدعم البيعي</span>
+                    <span class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">أنشطة التسويق والمبيعات لتوسيع نطاق الوصول</span>
+                    </span>
+                </div>
+                <div class="breakdown-item">
+                    <span>5% — الإدارة والطوارئ</span>
+                    <span class="tooltip">
+                        <span class="tooltip-icon">?</span>
+                        <span class="tooltip-text">التكاليف الإدارية واحتياطي الطوارئ</span>
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- التذييل -->
-    <footer class="footer" id="contact">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='50' viewBox='0 0 200 50'><rect width='200' height='50' fill='%23E0A96D' rx='5'/><text x='100' y='30' font-family='Cairo' font-size='20' fill='%234E342E' text-anchor='middle'>رزق الهانم</text></svg>" alt="رزق الهانم">
-                <p>نسعى لتحقيق تنمية مستدامة من خلال إعادة تدوير الملابس وتمكين المرأة.</p>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>لماذا بدأنا</h2>
             </div>
             
-            <div class="footer-links">
-                <h3>روابط سريعة</h3>
-                <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#volunteer">التطوع</a></li>
-                    <li><a href="#gallery">المعرض</a></li>
-                    <li><a href="#social">وسائل التواصل</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>اتصل بنا</h3>
-                <ul>
-                    <li><i class="fas fa-envelope"></i> info@reze2elhanem.com</li>
-                    <li><i class="fas fa-phone"></i> +20 123 456 7890</li>
-                    <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
-                </ul>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>"لا أريد ملابس - أريد عملاً"، قالت عزة لنا. هذه الجملة غيرت كل شيء. بدأ رزق الهانم لتحويل هذه الجملة إلى مسار: من صناديق التبرعات إلى فرص مخيطة.</p>
+                    
+                    <div class="quote">
+                        "لا أريد ملابس - أريد عملاً"
+                    </div>
+                    
+                    <p>من خلال التدريب والدعم المستمر، نساعد النساء الريفيات على تحويل الملابس المتبرع بها إلى منتجات ذات قيمة مضافة، مما يوفر مصدر دخل مستدام ومهارات قابلة للتطوير.</p>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-lg); color: var(--primary-brown); text-align: center;">كيف نعمل</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4>التجميع</h4>
+                            <p>جمع الملابس المتبرع بها</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4>التدريب</h4>
+                            <p>تدريب النساء على إعادة التدوير</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4>الإنتاج</h4>
+                            <p>تحويل الملابس إلى منتجات جديدة</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h4>السوق</h4>
+                            <p>بيع المنتجات وإعادة الأرباح</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2023 رزق الهانم. جميع الحقوق محفوظة.</p>
-            <button class="language-toggle" id="footerLanguageToggle">EN</button>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <div class="section-header">
+                <h2>تأثيرنا</h2>
+                <p>نقيس نجاحنا من خلال الأثر الملموس على حياة النساء والمجتمعات الريفية</p>
+            </div>
+            
+            <div class="impact-counters">
+                <div class="impact-counter">
+                    <div class="counter-number" id="impact-volunteers">40+</div>
+                    <div class="counter-label">متطوع</div>
+                </div>
+                <div class="impact-counter">
+                    <div class="counter-number" id="impact-items">100+</div>
+                    <div class="counter-label">عنصر تبرع</div>
+                </div>
+                <div class="impact-counter">
+                    <div class="counter-number" id="impact-women">20+</div>
+                    <div class="counter-label">امرأة مدربة</div>
+                </div>
+                <div class="impact-counter">
+                    <div class="counter-number" id="impact-workshops">5+</div>
+                    <div class="counter-label">ورشة عمل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section - Temporarily Hidden -->
+    <section class="partners" id="partners" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2>شركاؤنا</h2>
+                <p>نعمل مع منظمات وشركات ملتزمة بدعم تمكين المرأة والاستدامة</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">شريك 1</div>
+                <div class="partner-logo">شريك 2</div>
+                <div class="partner-logo">شريك 3</div>
+                <div class="partner-logo">شريك 4</div>
+                <div class="partner-logo">شريك 5</div>
+                <div class="partner-logo">شريك 6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>رزق الهانم</h4>
+                    <p>تحويل الملابس المتبرع بها إلى سبل عيش مستدامة للنساء في ريف مصر.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/reze2_elhanem?igsh=YzljYTk1ODg3Zg==" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                            <span class="social-tooltip">تابعنا على إنستجرام</span>
+                        </a>
+                        <a href="https://www.linkedin.com/company/reze2-el-hanem/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-tooltip">تابعنا على لينكد إن</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#volunteer">التطوع</a></li>
+                        <li><a href="#donate">التبرع</a></li>
+                        <li><a href="#about">عنّا</a></li>
+                        <li><a href="#impact">التأثير</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>اتصل بنا</h4>
+                    <p>البريد الإلكتروني: Reze2elhanem@gmail.com</p>
+                    <p>تابعنا على وسائل التواصل الاجتماعي</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 رزق الهانم — جميع الحقوق محفوظة</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Donate Modal -->
+    <div class="modal" id="donate-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>اكمل تبرعك</h3>
+                <button class="close-modal" onclick="closeDonateModal()">×</button>
+            </div>
+            
+            <div id="modal-body">
+                <!-- This will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta">
+        <div class="container">
+            <div class="mobile-cta-buttons">
+                <a href="#volunteer" class="btn btn-primary">تطوع</a>
+                <a href="#donate" class="btn btn-secondary btn-disabled">تبرع</a>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // تبديل اللغة
-        document.getElementById('languageToggle').addEventListener('click', function() {
-            document.body.classList.toggle('english');
-            if (document.body.classList.contains('english')) {
-                this.textContent = 'AR';
-                // هنا يمكن إضافة الترجمة الفعلية للمحتوى
-            } else {
-                this.textContent = 'EN';
-            }
-        });
-        
-        document.getElementById('footerLanguageToggle').addEventListener('click', function() {
-            document.body.classList.toggle('english');
-            if (document.body.classList.contains('english')) {
-                this.textContent = 'AR';
-            } else {
-                this.textContent = 'EN';
-            }
-        });
-        
-        // العد التنازلي
-        function updateCountdown() {
-            const targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 15);
+        // Counter Animation
+        function animateCounter(element, target, duration = 1200) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
             
-            const now = new Date();
-            const difference = targetDate - now;
-            
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // حركات التمرير
-        function checkScroll() {
-            const elements = document.querySelectorAll('.animated');
-            
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect();
-                
-                if (position.top < window.innerHeight - 100) {
-                    element.classList.add('in-view');
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
                 }
-            });
+            }, 16);
         }
+
+        // Initialize counters when in viewport
+        function initCounters() {
+            const volunteersCount = document.getElementById('volunteers-count');
+            const itemsCount = document.getElementById('items-count');
+            const womenCount = document.getElementById('women-count');
+            const workshopsCount = document.getElementById('workshops-count');
+            
+            animateCounter(volunteersCount, 40);
+            animateCounter(itemsCount, 100);
+            animateCounter(womenCount, 20);
+            animateCounter(workshopsCount, 5);
+            
+            // Impact section counters
+            document.getElementById('impact-volunteers').textContent = '40+';
+            document.getElementById('impact-items').textContent = '100+';
+            document.getElementById('impact-women').textContent = '20+';
+            document.getElementById('impact-workshops').textContent = '5+';
+        }
+
+        // Language Toggle
+        document.getElementById('language-toggle').addEventListener('click', function() {
+            const body = document.body;
+            const isArabic = body.getAttribute('dir') === 'rtl';
+            
+            // Animation flip
+            const content = document.querySelector('.content-transition') || document.body;
+            content.classList.add('flipping');
+            
+            setTimeout(() => {
+                if (isArabic) {
+                    body.setAttribute('dir', 'ltr');
+                    body.setAttribute('lang', 'en');
+                    this.innerHTML = '<span>AR</span>';
+                    // Update all text content to English here
+                    document.querySelector('.logo-text').textContent = 'Rezq El Hanem';
+                    document.querySelector('.hero h1').textContent = 'Rezq El Hanem — Turning donated clothes into sustainable livelihoods';
+                    document.querySelector('.hero p').textContent = 'We train women in rural Egypt to upcycle textiles and earn steady income. Join us — donate, volunteer, or partner.';
+                    // ... update all other text content
+                } else {
+                    body.setAttribute('dir', 'rtl');
+                    body.setAttribute('lang', 'ar');
+                    this.innerHTML = '<span>EN</span>';
+                    // Update all text content to Arabic here
+                    document.querySelector('.logo-text').textContent = 'رزق الهانم';
+                    document.querySelector('.hero h1').textContent = 'رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة';
+                    document.querySelector('.hero p').textContent = 'نحن ندرب النساء في ريف مصر على إعادة تدوير المنسوجات وكسب دخل ثابت. انضم إلينا - تبرع، تطوع، أو كن شريكًا.';
+                    // ... update all other text content
+                }
+                
+                content.classList.remove('flipping');
+            }, 125);
+        });
+
+        // Mobile Navigation
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Toggle plus/minus icon
+                const icon = question.querySelector('span:last-child');
+                icon.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // Donate Option Selection
+        let selectedAmount = 0;
         
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
-        
-        // تأثيرات التمرير السلس
+        document.querySelectorAll('.donate-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.donate-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                selectedAmount = parseInt(this.getAttribute('data-amount'));
+            });
+        });
+
+        function selectCustomAmount() {
+            const customAmount = document.getElementById('custom-amount').value;
+            if (customAmount) {
+                selectedAmount = parseInt(customAmount);
+                document.querySelectorAll('.donate-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+            }
+        }
+
+        // Modal Functions - Disabled for now
+        function openDonateModal() {
+            // Donation functionality temporarily disabled
+            return false;
+        }
+
+        function closeDonateModal() {
+            document.getElementById('donate-modal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('donate-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDonateModal();
+            }
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
@@ -888,12 +1437,63 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                    document.getElementById('hamburger').classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initCounters();
+            
+            // Add content transition class to body
+            document.body.classList.add('content-transition');
+            
+            // Initialize first donate option as selected
+            document.querySelector('.donate-option').click();
+            
+            // Disable donation buttons
+            document.querySelectorAll('a[href="#donate"], .btn-secondary').forEach(btn => {
+                if (btn.textContent.includes('تبرع') || btn.textContent.includes('Donate')) {
+                    btn.classList.add('btn-disabled');
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
                     });
                 }
             });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.benefit-card, .impact-counter, .step, .partner-logo').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(18px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
