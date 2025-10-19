@@ -1006,7 +1006,7 @@
                     <a href="#donate" class="btn btn-secondary btn-disabled">تبرع الآن</a>
                 </div>
                 
-                <p class="hero-micro">بدأنا: 12 أغسطس · 40+ متطوع · 100+ عنصر تبرع</p>
+                <p class="hero-micro">بدأنا: أغسطس 2025 · 100+ متطوع · 100+ عنصر تبرع</p>
             </div>
         </div>
     </section>
@@ -1050,7 +1050,7 @@
                 <div>
                     <div class="volunteer-cta">
                         <h3 style="margin-bottom: 1rem;">مستعد للانضمام؟ تقدم الآن →</h3>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScXk6EimANoKZWZAM8LcPrB4bxW6AnWC1GiwBqCRBS5NhgtPQ/viewform?usp=header" 
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeq93TBMKYTZT8qyxObZ3QB-JFLO38o3Jdpr8Tjn2i3rFwmpQ/viewform?usp=header" 
                            class="btn" target="_blank">استمارة التطوع</a>
                     </div>
                     
@@ -1225,7 +1225,7 @@
             
             <div class="impact-counters">
                 <div class="impact-counter">
-                    <div class="counter-number" id="impact-volunteers">40+</div>
+                    <div class="counter-number" id="impact-volunteers">100+</div>
                     <div class="counter-label">متطوع</div>
                 </div>
                 <div class="impact-counter">
@@ -1233,11 +1233,11 @@
                     <div class="counter-label">عنصر تبرع</div>
                 </div>
                 <div class="impact-counter">
-                    <div class="counter-number" id="impact-women">20+</div>
+                    <div class="counter-number" id="impact-women">10+</div>
                     <div class="counter-label">امرأة مدربة</div>
                 </div>
                 <div class="impact-counter">
-                    <div class="counter-number" id="impact-workshops">5+</div>
+                    <div class="counter-number" id="impact-workshops">1+</div>
                     <div class="counter-label">ورشة عمل</div>
                 </div>
             </div>
@@ -1337,10 +1337,10 @@
         }
         
         function initCounters() {
-            animateCounter(document.getElementById('volunteers-count'), 40);
+            animateCounter(document.getElementById('volunteers-count'), 100);
             animateCounter(document.getElementById('items-count'), 100);
-            animateCounter(document.getElementById('women-count'), 20);
-            animateCounter(document.getElementById('workshops-count'), 5);
+            animateCounter(document.getElementById('women-count'), 10);
+            animateCounter(document.getElementById('workshops-count'), 1);
         }
         
         // تبديل اللغة
@@ -1359,6 +1359,7 @@
                     document.querySelector('.logo-text').textContent = 'Rezq El Hanem';
                     document.querySelector('.hero h1').textContent = 'Rezq El Hanem — Turning donated clothes into sustainable livelihoods';
                     document.querySelector('.hero p').textContent = 'We train women in rural Egypt to upcycle textiles and earn steady income. Join us — donate, volunteer, or partner.';
+                    document.querySelector('.hero-micro').textContent = 'Started: August 2025 · 100+ volunteers · 100+ donated items';
                 } else {
                     body.setAttribute('dir', 'rtl');
                     body.setAttribute('lang', 'ar');
@@ -1366,6 +1367,7 @@
                     document.querySelector('.logo-text').textContent = 'رزق الهانم';
                     document.querySelector('.hero h1').textContent = 'رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة';
                     document.querySelector('.hero p').textContent = 'نحن ندرب النساء في ريف مصر على إعادة تدوير المنسوجات وكسب دخل ثابت. انضم إلينا - تبرع، تطوع، أو كن شريكًا.';
+                    document.querySelector('.hero-micro').textContent = 'بدأنا: أغسطس 2025 · 100+ متطوع · 100+ عنصر تبرع';
                 }
                 
                 content.classList.remove('flipping');
