@@ -1175,13 +1175,10 @@
                     <span class="logo-text">رزق الهانم</span>
                 </a>
                 
-                <!-- Navigation -->
+                <!-- Navigation - Updated -->
                 <nav class="desktop-nav">
                     <a href="#home">الرئيسية</a>
                     <a href="#volunteer">التطوع</a>
-                    <a href="#donate">التبرع</a>
-                    <a href="#about">عنّا</a>
-                    <a href="#impact">التأثير</a>
                     <a href="#hanem-journal">Hanem Journal</a>
                     <a href="#contact">اتصل بنا</a>
                 </nav>
@@ -1253,11 +1250,11 @@
                     <div class="benefits-grid">
                         <div class="benefit-card">
                             <h4>شهادة مشاركة معتمدة</h4>
-                            <p>بعد إكمال 8 مهام تطوعية، تحصل على شهادة معتمدة تثبت مساهمتك في تمكين المرأة</p>
+                            <p>بعد إكمال 4 مهام تطوعية، تحصل على شهادة معتمدة تثبت مساهمتك في تمكين المرأة</p>
                         </div>
                         <div class="benefit-card">
                             <h4>خطاب توصية شخصي</h4>
-                            <p>بعد إكمال 10+ مهام، نمنحك خطاب توصية مفصل يعزز سيرتك الذاتية</p>
+                            <p>بعد إكمال 8+ مهام، نمنحك خطاب توصية مفصل يعزز سيرتك الذاتية</p>
                         </div>
                         <div class="benefit-card">
                             <h4>ورش عمل احترافية</h4>
@@ -1311,7 +1308,7 @@
                 <button class="tab-btn" data-tab="stories">قصص الملهمات</button>
             </div>
             
-            <!-- Founders Corner -->
+            <!-- Founders Corner - Updated -->
             <div class="tab-content active" id="founders">
                 <div class="founders-grid">
                     <div class="founder-card">
@@ -1324,7 +1321,7 @@
                     </div>
                     <div class="founder-card">
                         <h3>خيوط الأمل</h3>
-                        <p>ما بدأ كفكرة بسيطة أصبح حركة إيجابية تمس حياة المئات. المتطوعون الذين انضموا إلينا جلبوا معهم الطاقة والإبداع، والنساء في القرى علمننا معنى الصبر والإصرار. معاً، ننسج خيوط الأمل في مجتمع أكثر استدامة وعدلاً.</p>
+                        <p>قريباً سنشارككم قصة تأسيس رزق الهانم بالتفصيل - من الفكرة الأولى إلى الواقع الملموس. كيف تحول حلم بسيط إلى حركة إيجابية تمس حياة المئات من النساء والمتطوعين. تابعونا لمعرفة المزيد عن رحلتنا الملهمة.</p>
                     </div>
                 </div>
             </div>
@@ -1560,29 +1557,186 @@
             carousel.scrollBy({ left: -450, behavior: 'smooth' });
         });
         
-        // Language toggle
+        // Language toggle with full translation
         document.getElementById('language-toggle').addEventListener('click', function() {
             const body = document.body;
             const isArabic = body.getAttribute('dir') === 'rtl';
             
             if (isArabic) {
+                // Switch to English
                 body.setAttribute('dir', 'ltr');
                 body.setAttribute('lang', 'en');
                 this.innerHTML = '<span>AR</span>';
-                // Update all text content to English here
+                
+                // Update all text content to English
                 document.querySelector('.logo-text').textContent = 'Rezq El Hanem';
                 document.querySelector('.hero h1').textContent = 'Rezq El Hanem — Turning donated clothes into sustainable livelihoods';
                 document.querySelector('.hero p').textContent = 'We train women in rural Egypt to upcycle textiles and earn steady income. Join us in our journey of making change - donate, volunteer, or partner in women empowerment.';
                 document.querySelector('.hero-micro').textContent = 'Started our journey in August 2025 · 100+ inspiring volunteers · 100+ success stories';
+                
+                // Update navigation
+                const navLinks = document.querySelectorAll('.desktop-nav a');
+                navLinks[0].textContent = 'Home';
+                navLinks[1].textContent = 'Volunteer';
+                navLinks[2].textContent = 'Hanem Journal';
+                navLinks[3].textContent = 'Contact Us';
+                
+                // Update volunteer section
+                document.querySelector('.section-header h2').textContent = 'Volunteering — Be a thread in the fabric of change';
+                document.querySelector('.section-header p').textContent = 'Help scale the local solution: work with rural women, design campaigns, manage workshops, or support logistics. No experience required - just commitment and passion to make a difference.';
+                document.querySelector('.volunteer-content h3').textContent = 'What does volunteering with us offer you?';
+                
+                // Update benefit cards
+                const benefitCards = document.querySelectorAll('.benefit-card');
+                benefitCards[0].querySelector('h4').textContent = 'Certified Participation Certificate';
+                benefitCards[0].querySelector('p').textContent = 'After completing 4 volunteer tasks, you receive a certified certificate proving your contribution to women empowerment';
+                benefitCards[1].querySelector('h4').textContent = 'Personal Recommendation Letter';
+                benefitCards[1].querySelector('p').textContent = 'After completing 8+ tasks, we provide you with a detailed recommendation letter that enhances your CV';
+                benefitCards[2].querySelector('h4').textContent = 'Professional Workshops';
+                benefitCards[2].querySelector('p').textContent = 'Leadership and management skills development sessions with specialists in the field';
+                benefitCards[3].querySelector('h4').textContent = 'Priority Participation';
+                benefitCards[3].querySelector('p').textContent = 'Early and exclusive access to events, activities, and leadership opportunities';
+                benefitCards[4].querySelector('h4').textContent = 'Distinctive Digital Badge';
+                benefitCards[4].querySelector('p').textContent = 'Digital badge to display on LinkedIn and professional networking platforms';
+                
+                // Update volunteer notice
+                document.querySelector('.volunteer-notice h4').textContent = 'Important Note';
+                const noticeParagraphs = document.querySelectorAll('.volunteer-notice p');
+                noticeParagraphs[0].textContent = 'Volunteering is currently open for video editors only';
+                noticeParagraphs[1].textContent = 'Volunteering for all fields will open very soon';
+                noticeParagraphs[2].textContent = 'Volunteering for video editors will close once the required number is completed';
+                
+                // Update volunteer CTA
+                document.querySelector('.volunteer-cta h3').textContent = 'Ready to start your volunteering journey?';
+                document.querySelector('.volunteer-cta p').textContent = 'Join the Rezq El Hanem family and be part of the change';
+                document.querySelector('.volunteer-cta .btn').innerHTML = '<i class="fas fa-rocket"></i> Start Your Journey Now';
+                
+                // Update CTA buttons
+                const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
+                ctaButtons[0].innerHTML = '<i class="fas fa-hands-helping"></i> Join Us as a Volunteer';
+                ctaButtons[1].innerHTML = '<i class="fas fa-heart"></i> Support Our Journey by Donating';
+                
+                // Update stat labels
+                const statLabels = document.querySelectorAll('.stat-label');
+                statLabels[0].textContent = 'Volunteers Advocating for Change';
+                statLabels[1].textContent = 'Clothing Items Upcycled';
+                statLabels[2].textContent = 'Women Trained and Empowered';
+                statLabels[3].textContent = 'Empowerment and Professional Workshops';
+                
+                // Update Hanem Journal
+                document.querySelector('.journal-header h2').textContent = 'Hanem Journal';
+                document.querySelector('.journal-header p').textContent = 'Stories and inspirations from the Rezq El Hanem journey - where hearts meet craftsmanship and dreams become reality';
+                
+                // Update tab buttons
+                const tabButtons = document.querySelectorAll('.tab-btn');
+                tabButtons[0].textContent = 'Founders Corner';
+                tabButtons[1].textContent = 'Volunteers Voices';
+                tabButtons[2].textContent = 'Inspiring Stories';
+                
+                // Update founders section
+                const founderCards = document.querySelectorAll('.founder-card');
+                founderCards[0].querySelector('h3').textContent = 'The Beginning of the Dream';
+                founderCards[0].querySelector('p').textContent = 'Everything started with simple words: "I don\'t want clothes, I want work." This sentence changed the course of our lives and inspired us to create Rezq El Hanem. Through upcycling clothes, we not only created job opportunities but built a community of strong women who create a better future for themselves and their families.';
+                founderCards[1].querySelector('h3').textContent = 'Journey of Faith';
+                founderCards[1].querySelector('p').textContent = 'In every village visit, we see hope renewed in the eyes of women. The transformation from feeling helpless to feeling empowered is the most beautiful part of our journey. Every piece of fabric we upcycle carries a story, and every woman we train tells a new tale from challenge to success.';
+                founderCards[2].querySelector('h3').textContent = 'Threads of Hope';
+                founderCards[2].querySelector('p').textContent = 'Soon we will share with you the detailed story of the founding of Rezq El Hanem - from the first idea to tangible reality. How a simple dream turned into a positive movement touching the lives of hundreds of women and volunteers. Follow us to learn more about our inspiring journey.';
+                
+                // Update women stories section
+                document.querySelector('.women-stories h3').textContent = 'Inspiring Stories';
+                document.querySelector('.women-stories p').textContent = 'Soon we will share with you the inspiring stories of women whose lives have changed thanks to Rezq El Hanem. Stories from struggle to success, from challenge to empowerment.';
+                document.querySelector('.women-stories p:nth-child(3)').textContent = '"From a simple dream to tangible reality, we weave together an endless story of empowerment"';
+                
+                // Update share button
+                document.querySelector('.share-btn').innerHTML = '<i class="fas fa-share-alt"></i> Share Your Story With Us';
+                
             } else {
+                // Switch to Arabic
                 body.setAttribute('dir', 'rtl');
                 body.setAttribute('lang', 'ar');
                 this.innerHTML = '<span>EN</span>';
-                // Update all text content to Arabic here
+                
+                // Update all text content to Arabic
                 document.querySelector('.logo-text').textContent = 'رزق الهانم';
                 document.querySelector('.hero h1').textContent = 'رزق الهانم — تحويل الملابس المتبرع بها إلى سبل عيش مستدامة';
                 document.querySelector('.hero p').textContent = 'نحن ندرب النساء في ريف مصر على إعادة تدوير المنسوجات وكسب دخل ثابت. انضم إلينا في رحلة صنع التغيير - تبرع، تطوع، أو كن شريكًا في تمكين المرأة.';
                 document.querySelector('.hero-micro').textContent = 'بدأنا رحلتنا في أغسطس 2025 · 100+ متطوع ملهم · 100+ قصة نجاح';
+                
+                // Update navigation
+                const navLinks = document.querySelectorAll('.desktop-nav a');
+                navLinks[0].textContent = 'الرئيسية';
+                navLinks[1].textContent = 'التطوع';
+                navLinks[2].textContent = 'Hanem Journal';
+                navLinks[3].textContent = 'اتصل بنا';
+                
+                // Update volunteer section
+                document.querySelector('.section-header h2').textContent = 'التطوع — كن خيطًا في نسيج التغيير';
+                document.querySelector('.section-header p').textContent = 'ساعد في توسيع نطاق الحل المحلي: اعمل مع النساء الريفيات، وصمم الحملات، وادير ورش العمل، أو ادعم العمليات اللوجستية. لا توجد خبرة مطلوبة - فقط الالتزام والشغف لصنع الفرق.';
+                document.querySelector('.volunteer-content h3').textContent = 'ماذا تقدم لك رحلة التطوع معنا؟';
+                
+                // Update benefit cards
+                const benefitCards = document.querySelectorAll('.benefit-card');
+                benefitCards[0].querySelector('h4').textContent = 'شهادة مشاركة معتمدة';
+                benefitCards[0].querySelector('p').textContent = 'بعد إكمال 4 مهام تطوعية، تحصل على شهادة معتمدة تثبت مساهمتك في تمكين المرأة';
+                benefitCards[1].querySelector('h4').textContent = 'خطاب توصية شخصي';
+                benefitCards[1].querySelector('p').textContent = 'بعد إكمال 8+ مهام، نمنحك خطاب توصية مفصل يعزز سيرتك الذاتية';
+                benefitCards[2].querySelector('h4').textContent = 'ورش عمل احترافية';
+                benefitCards[2].querySelector('p').textContent = 'جلسات تطوير مهارات قيادية وإدارية مع مختصين في المجال';
+                benefitCards[3].querySelector('h4').textContent = 'أولوية المشاركة';
+                benefitCards[3].querySelector('p').textContent = 'وصول مسبق وحصري للفعاليات والأنشطة والفرص القيادية';
+                benefitCards[4].querySelector('h4').textContent = 'شارة رقمية مميزة';
+                benefitCards[4].querySelector('p').textContent = 'شارة رقمية لعرضها على لينكد إن ومنصات التواصل المهنية';
+                
+                // Update volunteer notice
+                document.querySelector('.volunteer-notice h4').textContent = 'ملاحظة هامة';
+                const noticeParagraphs = document.querySelectorAll('.volunteer-notice p');
+                noticeParagraphs[0].textContent = 'التطوع مفتوح حالياً لمحرري الفيديو فقط';
+                noticeParagraphs[1].textContent = 'سيتم فتح باب التطوع لجميع المجالات قريباً جداً';
+                noticeParagraphs[2].textContent = 'سيغلق باب التطوع لمحرري الفيديو فور اكتمال العدد المطلوب';
+                
+                // Update volunteer CTA
+                document.querySelector('.volunteer-cta h3').textContent = 'مستعد لبدء رحلتك التطوعية؟';
+                document.querySelector('.volunteer-cta p').textContent = 'انضم إلى عائلة رزق الهانم وكن جزءاً من التغيير';
+                document.querySelector('.volunteer-cta .btn').innerHTML = '<i class="fas fa-rocket"></i> ابدأ رحلتك الآن';
+                
+                // Update CTA buttons
+                const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
+                ctaButtons[0].innerHTML = '<i class="fas fa-hands-helping"></i> انضم إلينا كمتطوع';
+                ctaButtons[1].innerHTML = '<i class="fas fa-heart"></i> ادعم رحلتنا بالتبرع';
+                
+                // Update stat labels
+                const statLabels = document.querySelectorAll('.stat-label');
+                statLabels[0].textContent = 'متطوع مناصر للتغيير';
+                statLabels[1].textContent = 'قطعة ملابس أعيد تدويرها';
+                statLabels[2].textContent = 'امرأة مدربة وتمكينت';
+                statLabels[3].textContent = 'ورشة تمكين واحترافية';
+                
+                // Update Hanem Journal
+                document.querySelector('.journal-header h2').textContent = 'Hanem Journal';
+                document.querySelector('.journal-header p').textContent = 'قصص وإلهامات من رحلة رزق الهانم - حيث تلتقي القلوب بالحرف وتتحول الأحلام إلى واقع';
+                
+                // Update tab buttons
+                const tabButtons = document.querySelectorAll('.tab-btn');
+                tabButtons[0].textContent = 'ركن المؤسسين';
+                tabButtons[1].textContent = 'أصوات المتطوعين';
+                tabButtons[2].textContent = 'قصص الملهمات';
+                
+                // Update founders section
+                const founderCards = document.querySelectorAll('.founder-card');
+                founderCards[0].querySelector('h3').textContent = 'بداية الحلم';
+                founderCards[0].querySelector('p').textContent = 'كل شيء بدأ بكلمات بسيطة: "لا أريد ملابس، أريد عملاً". هذه الجملة غيرت مسار حياتنا وألهمتنا لخلق رزق الهانم. من خلال إعادة تدوير الملابس، لم نخلق فرص عمل فحسب، بل بنينا مجتمعاً من النساء القويات اللواتي يخلقن مستقبلاً أفضل لأنفسهن وعائلاتهن.';
+                founderCards[1].querySelector('h3').textContent = 'رحلة الإيمان';
+                founderCards[1].querySelector('p').textContent = 'في كل زيارة قرية، نرى الأمل يتجدد في عيون النساء. التحول من الشعور بالعجز إلى الإحساس بالتمكين هو أجمل ما في رحلتنا. كل قطعة قماش نعيد تدويرها تحمل قصة، وكل امرأة نتدربها تروي حكاية جديدة من التحدي إلى النجاح.';
+                founderCards[2].querySelector('h3').textContent = 'خيوط الأمل';
+                founderCards[2].querySelector('p').textContent = 'قريباً سنشارككم قصة تأسيس رزق الهانم بالتفصيل - من الفكرة الأولى إلى الواقع الملموس. كيف تحول حلم بسيط إلى حركة إيجابية تمس حياة المئات من النساء والمتطوعين. تابعونا لمعرفة المزيد عن رحلتنا الملهمة.';
+                
+                // Update women stories section
+                document.querySelector('.women-stories h3').textContent = 'قصص الملهمات';
+                document.querySelector('.women-stories p').textContent = 'قريباً سنشارككم قصص النساء الملهمات اللواتي تغيرت حياتهن بفضل رزق الهانم. قصص من الكفاح إلى النجاح، ومن التحدي إلى التمكين.';
+                document.querySelector('.women-stories p:nth-child(3)').textContent = '"من حلم بسيط إلى واقع ملموس، ننسج معاً قصة تمكين لا تنتهي"';
+                
+                // Update share button
+                document.querySelector('.share-btn').innerHTML = '<i class="fas fa-share-alt"></i> شارك قصتك معنا';
             }
         });
         
