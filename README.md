@@ -57,12 +57,12 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         /* Enhanced Header with Glass Effect */
         header {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 8px 32px rgba(139, 94, 60, 0.1);
@@ -70,14 +70,14 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            height: 90px;
+            height: 80px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
         }
 
         header.scrolled {
-            height: 80px;
-            background: rgba(255, 255, 255, 0.95);
+            height: 70px;
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 5px 20px rgba(139, 94, 60, 0.15);
         }
 
@@ -92,7 +92,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1rem;
             text-decoration: none;
             transition: transform 0.3s ease;
         }
@@ -102,8 +102,8 @@
         }
 
         .logo-svg {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             transition: all 0.4s ease;
         }
 
@@ -125,24 +125,35 @@
 
         .logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-brown);
             letter-spacing: -0.5px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-brown);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
         /* Enhanced Navigation */
         .desktop-nav {
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .desktop-nav a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
             position: relative;
             padding: 0.5rem 0;
@@ -188,22 +199,23 @@
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .language-toggle {
             background: linear-gradient(135deg, rgba(139, 94, 60, 0.1), rgba(232, 180, 184, 0.1));
             border: 2px solid rgba(139, 94, 60, 0.2);
-            padding: 0.7rem 1.5rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.5rem;
             transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
             font-weight: 600;
             color: var(--primary-brown);
             backdrop-filter: blur(10px);
+            font-size: 0.9rem;
         }
 
         .language-toggle:hover {
@@ -222,7 +234,7 @@
             justify-content: center;
             overflow: hidden;
             background: linear-gradient(135deg, #F7EFE6 0%, #FFF9F4 30%, #F8F4F0 70%, #F7EFE6 100%);
-            padding: 0;
+            padding: 6rem 0 2rem;
         }
 
         .hero-background {
@@ -273,16 +285,16 @@
             text-align: center;
             width: 100%;
             max-width: 1200px;
-            padding: 6rem 2rem;
+            padding: 2rem 1rem;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: var(--primary-brown);
-            line-height: 1.1;
+            line-height: 1.2;
             text-shadow: 0 4px 20px rgba(0,0,0,0.1);
             background: linear-gradient(135deg, var(--primary-brown), #A07854, var(--accent-gold));
             -webkit-background-clip: text;
@@ -297,9 +309,9 @@
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: var(--muted);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             line-height: 1.6;
             max-width: 800px;
             margin-left: auto;
@@ -314,19 +326,19 @@
 
         .hero-stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2.5rem;
-            margin: 4rem auto;
-            max-width: 1000px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 3rem auto;
+            max-width: 600px;
         }
 
         .stat {
             text-align: center;
-            padding: 2.5rem 2rem;
+            padding: 1.5rem 1rem;
             background: rgba(255,255,255,0.7);
-            border-radius: 25px;
+            border-radius: 20px;
             backdrop-filter: blur(20px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.3);
             transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
             position: relative;
@@ -346,8 +358,8 @@
         }
 
         .stat:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(139, 94, 60, 0.2);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(139, 94, 60, 0.2);
         }
 
         .stat:hover::before {
@@ -355,34 +367,37 @@
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--primary-brown);
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            line-height: 1;
         }
 
         .stat-label {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: var(--muted);
             font-weight: 600;
+            line-height: 1.3;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
             justify-content: center;
             align-items: center;
-            margin: 4rem 0;
-            flex-wrap: wrap;
+            margin: 3rem 0;
+            width: 100%;
         }
 
         .btn {
-            padding: 1.5rem 3rem;
+            padding: 1.2rem 2.5rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -394,6 +409,8 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 300px;
         }
 
         .btn::before {
@@ -416,7 +433,7 @@
             background: linear-gradient(135deg, var(--primary-brown), #A07854, var(--primary-brown));
             background-size: 200% 200%;
             color: var(--white);
-            box-shadow: 0 15px 35px rgba(139, 94, 60, 0.4);
+            box-shadow: 0 10px 25px rgba(139, 94, 60, 0.4);
             animation: gradientShift 3s ease infinite;
         }
 
@@ -426,22 +443,22 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(139, 94, 60, 0.6);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(139, 94, 60, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--primary-brown);
-            border: 3px solid var(--primary-brown);
-            box-shadow: 0 10px 30px rgba(139, 94, 60, 0.2);
+            border: 2px solid var(--primary-brown);
+            box-shadow: 0 8px 20px rgba(139, 94, 60, 0.2);
         }
 
         .btn-secondary:hover {
             background: var(--primary-brown);
             color: var(--white);
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(139, 94, 60, 0.3);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 25px rgba(139, 94, 60, 0.3);
         }
 
         .btn-disabled {
@@ -453,25 +470,26 @@
 
         .btn-disabled:hover {
             transform: none !important;
-            box-shadow: 0 10px 30px rgba(139, 94, 60, 0.2) !important;
+            box-shadow: 0 8px 20px rgba(139, 94, 60, 0.2) !important;
         }
 
         .hero-micro {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: var(--muted);
-            margin-top: 3rem;
+            margin-top: 2rem;
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             border-radius: 50px;
             background: rgba(255,255,255,0.3);
             border: 1px solid rgba(255,255,255,0.2);
             display: inline-block;
+            max-width: 100%;
         }
 
         /* Enhanced Volunteer Section */
         .volunteer {
             background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248, 244, 240, 0.9) 100%);
-            padding: 8rem 0;
+            padding: 5rem 0;
             position: relative;
             overflow: hidden;
         }
@@ -490,15 +508,15 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
             position: relative;
         }
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             color: var(--primary-brown);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             position: relative;
             display: inline-block;
         }
@@ -506,12 +524,12 @@
         .section-header h2::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -12px;
             right: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, transparent, var(--accent-pink), var(--accent-gold), var(--accent-pink), transparent);
-            border-radius: 4px;
+            border-radius: 3px;
             animation: widthPulse 3s ease-in-out infinite;
         }
 
@@ -521,30 +539,30 @@
         }
 
         .section-header p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--muted);
             max-width: 700px;
             margin: 0 auto;
             font-weight: 300;
+            line-height: 1.6;
         }
 
         .volunteer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
 
         .benefits-grid {
             display: grid;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .benefit-card {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px var(--shadow);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px var(--shadow);
             transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
             border: 1px solid rgba(139, 94, 60, 0.1);
             position: relative;
@@ -564,34 +582,39 @@
         }
 
         .benefit-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 60px var(--shadow-strong);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-strong);
         }
 
         .benefit-card:hover::before {
-            width: 10px;
+            width: 8px;
         }
 
         .benefit-card h4 {
             color: var(--primary-brown);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
 
+        .benefit-card p {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
         .volunteer-cta-container {
-            position: sticky;
-            top: 120px;
+            position: relative;
         }
 
         .volunteer-notice {
             background: linear-gradient(135deg, #FFF9F4, #FFE8E8);
             border: 2px dashed var(--accent-pink);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(232, 180, 184, 0.2);
+            box-shadow: 0 8px 20px rgba(232, 180, 184, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -609,27 +632,28 @@
 
         .volunteer-notice h4 {
             color: var(--primary-brown);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
             position: relative;
             z-index: 1;
         }
 
         .volunteer-notice p {
             color: var(--muted);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             position: relative;
             z-index: 1;
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .volunteer-cta {
             background: linear-gradient(135deg, var(--primary-brown), #A07854);
             color: white;
-            padding: 3rem;
-            border-radius: 30px;
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(139, 94, 60, 0.4);
+            box-shadow: 0 15px 35px rgba(139, 94, 60, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -646,25 +670,35 @@
         }
 
         .volunteer-cta h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .volunteer-cta p {
+            color: rgba(255,255,255,0.9);
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         .volunteer-cta .btn {
             background: var(--white);
             color: var(--primary-brown);
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             position: relative;
             z-index: 1;
-            font-size: 1.1rem;
-            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            max-width: 250px;
         }
 
         /* Enhanced Hanem Journal Section */
         .hanem-journal {
-            padding: 10rem 0;
+            padding: 5rem 0;
             background: linear-gradient(135deg, #F7EFE6 0%, #F8F4F0 50%, #FFF9F4 100%);
             position: relative;
             overflow: hidden;
@@ -686,15 +720,15 @@
 
         .journal-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
             position: relative;
         }
 
         .journal-header h2 {
             font-family: 'Dancing Script', cursive;
-            font-size: 5.5rem;
+            font-size: 3rem;
             color: var(--primary-brown);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.1);
             background: linear-gradient(135deg, var(--primary-brown), var(--accent-gold), var(--accent-pink));
             -webkit-background-clip: text;
@@ -704,27 +738,28 @@
         }
 
         .journal-header p {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: var(--muted);
             max-width: 600px;
             margin: 0 auto;
             font-style: italic;
             font-weight: 300;
+            line-height: 1.6;
         }
 
         /* Journal Tabs */
         .journal-tabs {
             display: flex;
-            justify-content: center;
-            margin-bottom: 5rem;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            align-items: center;
         }
 
         .tab-btn {
             background: rgba(255, 255, 255, 0.8);
             border: 2px solid var(--accent-sand);
-            padding: 1.2rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             font-family: 'Cairo', sans-serif;
             font-weight: 600;
@@ -733,8 +768,11 @@
             color: var(--text-dark);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 300px;
+            font-size: 1rem;
         }
 
         .tab-btn::before {
@@ -753,8 +791,8 @@
         .tab-btn:hover, .tab-btn.active {
             color: var(--white);
             border-color: var(--accent-pink);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(232, 180, 184, 0.4);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(232, 180, 184, 0.4);
         }
 
         .tab-btn:hover::before, .tab-btn.active::before {
@@ -772,22 +810,22 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Founders Corner */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
         .founder-card {
             background: rgba(255, 255, 255, 0.9);
-            padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 25px 60px var(--shadow);
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px var(--shadow);
             position: relative;
             transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
             border: 1px solid rgba(139, 94, 60, 0.1);
@@ -809,36 +847,36 @@
         .founder-card::after {
             content: '';
             position: absolute;
-            top: 15px;
-            right: 15px;
-            bottom: 15px;
-            left: 15px;
+            top: 10px;
+            right: 10px;
+            bottom: 10px;
+            left: 10px;
             border: 2px dashed var(--accent-pink);
-            border-radius: 25px;
+            border-radius: 15px;
             pointer-events: none;
             opacity: 0.3;
         }
 
         .founder-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 35px 70px var(--shadow-strong);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px var(--shadow-strong);
         }
 
         .founder-card h3 {
             font-family: 'Playfair Display', serif;
             color: var(--primary-brown);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
             position: relative;
             z-index: 1;
         }
 
         .founder-card p {
             color: var(--muted);
-            line-height: 1.8;
+            line-height: 1.6;
             position: relative;
             z-index: 1;
-            font-size: 1.15rem;
+            font-size: 1rem;
         }
 
         /* Volunteers Section */
@@ -849,8 +887,8 @@
         .volunteers-carousel {
             display: flex;
             overflow-x: auto;
-            gap: 2.5rem;
-            padding: 3rem 2rem;
+            gap: 1.5rem;
+            padding: 2rem 1rem;
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -861,11 +899,11 @@
         }
 
         .volunteer-journal-card {
-            flex: 0 0 420px;
+            flex: 0 0 85%;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            padding: 3rem;
-            box-shadow: 0 25px 60px var(--shadow);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 15px 35px var(--shadow);
             transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
             position: relative;
             border: 1px solid rgba(139, 94, 60, 0.1);
@@ -887,36 +925,36 @@
         .volunteer-journal-card::after {
             content: '';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            bottom: 20px;
-            left: 20px;
+            top: 15px;
+            right: 15px;
+            bottom: 15px;
+            left: 15px;
             border: 2px dashed var(--accent-pink);
-            border-radius: 25px;
+            border-radius: 15px;
             pointer-events: none;
             opacity: 0.3;
         }
 
         .volunteer-journal-card:hover {
-            transform: translateY(-15px) scale(1.04);
-            box-shadow: 0 35px 70px var(--shadow-strong);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px var(--shadow-strong);
         }
 
         .volunteer-image {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent-sand), #F0DBC4);
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-brown);
-            font-size: 2.5rem;
+            font-size: 2rem;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .volunteer-image::after {
@@ -931,7 +969,7 @@
 
         .volunteer-info {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
         }
@@ -939,7 +977,7 @@
         .volunteer-name {
             font-weight: 700;
             color: var(--primary-brown);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
             font-family: 'Playfair Display', serif;
         }
@@ -948,26 +986,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.7rem;
+            gap: 0.5rem;
             color: var(--muted);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .volunteer-quote {
             color: var(--text-dark);
-            line-height: 1.8;
+            line-height: 1.6;
             position: relative;
             padding: 0 0.5rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             z-index: 1;
         }
 
         .volunteer-quote::before {
             content: '"';
-            font-size: 5rem;
+            font-size: 4rem;
             color: var(--accent-pink);
             position: absolute;
-            top: -3rem;
+            top: -2.5rem;
             right: 0;
             opacity: 0.2;
             font-family: 'Playfair Display', serif;
@@ -977,13 +1015,13 @@
         .carousel-nav {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 4rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .carousel-btn {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid var(--accent-sand);
@@ -993,7 +1031,7 @@
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
             color: var(--primary-brown);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
             backdrop-filter: blur(10px);
         }
 
@@ -1001,19 +1039,19 @@
             background: var(--accent-pink);
             color: var(--white);
             border-color: var(--accent-pink);
-            transform: scale(1.15);
-            box-shadow: 0 12px 30px rgba(232, 180, 184, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(232, 180, 184, 0.4);
         }
 
         /* Women Stories Section */
         .women-stories {
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248, 244, 240, 0.9) 100%);
-            border-radius: 40px;
-            margin: 2rem auto;
+            border-radius: 20px;
+            margin: 1.5rem auto;
             max-width: 1000px;
-            box-shadow: 0 25px 60px var(--shadow);
+            box-shadow: 0 15px 35px var(--shadow);
             position: relative;
             overflow: hidden;
         }
@@ -1031,30 +1069,30 @@
 
         .women-stories h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--primary-brown);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .women-stories p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--muted);
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* Share Button */
         .share-story {
             text-align: center;
-            margin-top: 5rem;
+            margin-top: 3rem;
         }
 
         .share-btn {
             background: linear-gradient(135deg, var(--accent-pink), var(--primary-brown));
             color: var(--white);
             border: none;
-            padding: 1.5rem 3rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
             font-family: 'Cairo', sans-serif;
             font-weight: 600;
@@ -1063,35 +1101,83 @@
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            box-shadow: 0 15px 35px rgba(232, 180, 184, 0.5);
-            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(232, 180, 184, 0.5);
+            font-size: 1.1rem;
             backdrop-filter: blur(10px);
         }
 
         .share-btn:hover {
-            transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 25px 50px rgba(232, 180, 184, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(232, 180, 184, 0.6);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            transition: right 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            padding: 5rem 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary-brown);
+            transform: translateX(-10px);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 4rem;
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
             }
             
-            .volunteer-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .hero {
+                padding: 8rem 0 3rem;
             }
             
-            .volunteer-journal-card {
-                flex: 0 0 380px;
-            }
-        }
-
-        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .hero p {
@@ -1099,66 +1185,111 @@
             }
             
             .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+                max-width: 1000px;
+            }
+            
+            .stat {
+                padding: 2rem 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+            
+            .stat-label {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: row;
+                gap: 2rem;
+            }
+            
+            .btn {
+                width: auto;
+                max-width: none;
+            }
+            
+            .volunteer-content {
+                flex-direction: row;
+                gap: 4rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .journal-tabs {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+            
+            .tab-btn {
+                width: auto;
+            }
+            
+            .founders-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .volunteer-journal-card {
+                flex: 0 0 380px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 3rem;
             }
             
             .journal-header h2 {
                 font-size: 4rem;
             }
             
-            .journal-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .tab-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
             .volunteer-journal-card {
-                flex: 0 0 85%;
-                padding: 2.5rem;
+                flex: 0 0 420px;
+                padding: 3rem;
             }
             
-            .founders-grid {
+            .benefits-grid {
                 grid-template-columns: 1fr;
             }
             
-            .desktop-nav {
-                display: none;
+            .founders-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        @media (max-width: 767px) {
+            .desktop-nav {
+                display: none;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .mobile-nav-toggle {
+                display: block;
             }
             
-            .section-header h2 {
-                font-size: 2.5rem;
+            .header-content {
+                padding: 0 0.5rem;
             }
             
-            .journal-header h2 {
-                font-size: 3rem;
+            .logo-text {
+                font-size: 1.3rem;
             }
             
-            .volunteer-journal-card {
-                flex: 0 0 90%;
-                padding: 2rem;
-            }
-            
-            .btn {
-                padding: 1.2rem 2.5rem;
-                font-size: 1.1rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
+            .language-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -1175,7 +1306,7 @@
                     <span class="logo-text">رزق الهانم</span>
                 </a>
                 
-                <!-- Navigation - Updated -->
+                <!-- Desktop Navigation -->
                 <nav class="desktop-nav">
                     <a href="#home">الرئيسية</a>
                     <a href="#volunteer">التطوع</a>
@@ -1187,10 +1318,22 @@
                     <button class="language-toggle" id="language-toggle">
                         <span>EN</span>
                     </button>
+                    <button class="mobile-nav-toggle" id="mobile-nav-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#home">الرئيسية</a>
+        <a href="#volunteer">التطوع</a>
+        <a href="#hanem-journal">Hanem Journal</a>
+        <a href="#contact">اتصل بنا</a>
+    </div>
+    <div class="menu-overlay" id="menu-overlay"></div>
 
     <!-- Ultimate Hero Section -->
     <section class="hero" id="home">
@@ -1281,7 +1424,7 @@
                     
                     <div class="volunteer-cta">
                         <h3>مستعد لبدء رحلتك التطوعية؟</h3>
-                        <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; position: relative; z-index: 1;">انضم إلى عائلة رزق الهانم وكن جزءاً من التغيير</p>
+                        <p>انضم إلى عائلة رزق الهانم وكن جزءاً من التغيير</p>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLScTvPe_V0Za6NQE1msuLLszegdj5xYxPsNrvnsxfqPyeUo0rQ/viewform?usp=header" 
                            class="btn" target="_blank">
                             <i class="fas fa-rocket"></i>
@@ -1308,7 +1451,7 @@
                 <button class="tab-btn" data-tab="stories">قصص الملهمات</button>
             </div>
             
-            <!-- Founders Corner - Updated -->
+            <!-- Founders Corner -->
             <div class="tab-content active" id="founders">
                 <div class="founders-grid">
                     <div class="founder-card">
@@ -1380,57 +1523,6 @@
                                 Actually, it was my first time going through this experience, and it was a really wonderful one. I enjoyed it a lot, and for sure I will recommend it to others.
                             </div>
                         </div>
-                        
-                        <!-- Volunteer 4 -->
-                        <div class="volunteer-journal-card">
-                            <div class="volunteer-image">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="volunteer-info">
-                                <div class="volunteer-name">Mariam Abdelalim</div>
-                                <div class="volunteer-country">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    مصر
-                                </div>
-                            </div>
-                            <div class="volunteer-quote">
-                                رزق الهانم بجد من احلي الحاجات الي عملتها واتبسطت جدا اني كنت معاكوا وكنتو بتساعدونا جدا في كل حاجه وقولت لاصحابي انهم يقدمو معاكو في السيزون التاني وانا مكمله معاكو في تاني سيزون وإن شاء الله السيزون الي جاي يبقي احلي من الي فات.
-                            </div>
-                        </div>
-                        
-                        <!-- Volunteer 5 -->
-                        <div class="volunteer-journal-card">
-                            <div class="volunteer-image">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="volunteer-info">
-                                <div class="volunteer-name">Jana Mohamed</div>
-                                <div class="volunteer-country">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    مصر
-                                </div>
-                            </div>
-                            <div class="volunteer-quote">
-                                I enjoyed the experience and hope you achieve more and more. I am glad to be a part of your successful journey. Moreover, want to hear about you as soon as possible Inshallah.
-                            </div>
-                        </div>
-                        
-                        <!-- Volunteer 6 - Ayaat Qasim -->
-                        <div class="volunteer-journal-card">
-                            <div class="volunteer-image">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="volunteer-info">
-                                <div class="volunteer-name">آيات قاسم</div>
-                                <div class="volunteer-country">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    مصر
-                                </div>
-                            </div>
-                            <div class="volunteer-quote">
-                                كانت تجربه بالنسبالي كبيره اوي وخطوه جريئه مني اني اتطوع وانا حاسه اني مش شاطره كفايه بس لما بدأت اعمل التاسكات اكتشفت حاجات كتير اوي فيا مكانتش بينالي اكتشفت اني بعرف واني شاطره ومع كل تاسك كنت بتطور اكتر وبتعلم حاجه جديده بجد دي من احسن التجارب اللي خوضتها كانت ملهمه بالنسبالي جدا وزي بوش ليا لقدام عشان اكمل في الحاجه اللي انا طلعت شاطره فيها وانا مكنتش علي كامل الدرايه بيها.. الخلاصه اني استمتعت جدا بالتجربه دي وكل مره كنت بعمل فيها التاسك كنت بعمله بحب وبحاول اطلع احسن افكار عندي مكانش بالنسبالي حاجه ورايا وعايزه اخلصها وخلاص لا بجد كنت بتبسط في الوقت اللي بعمل فيه التاسك.. اخب اشكر الادمنز اللطاف جدا والمشجعين وشكرا رزق الهانم علي التجربه الملهمه المشجعه ليا دي 💗💗💗💗💗
-                            </div>
-                        </div>
                     </div>
                     
                     <div class="carousel-nav">
@@ -1468,14 +1560,14 @@
         // Create floating particles
         function createParticles() {
             const container = document.getElementById('particles-container');
-            const particleCount = 50;
+            const particleCount = 30;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 
                 // Random properties
-                const size = Math.random() * 8 + 2;
+                const size = Math.random() * 6 + 2;
                 const posX = Math.random() * 100;
                 const delay = Math.random() * 15;
                 const duration = Math.random() * 10 + 15;
@@ -1549,13 +1641,44 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         
-        nextBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: 450, behavior: 'smooth' });
-        });
+        if (carousel && prevBtn && nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+        }
         
-        prevBtn.addEventListener('click', () => {
-            carousel.scrollBy({ left: -450, behavior: 'smooth' });
-        });
+        // Mobile menu functionality
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        
+        if (mobileNavToggle && mobileMenu && menuOverlay) {
+            mobileNavToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                menuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            menuOverlay.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
         
         // Language toggle with full translation
         document.getElementById('language-toggle').addEventListener('click', function() {
@@ -1575,7 +1698,7 @@
                 document.querySelector('.hero-micro').textContent = 'Started our journey in August 2025 · 100+ inspiring volunteers · 100+ success stories';
                 
                 // Update navigation
-                const navLinks = document.querySelectorAll('.desktop-nav a');
+                const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-menu a');
                 navLinks[0].textContent = 'Home';
                 navLinks[1].textContent = 'Volunteer';
                 navLinks[2].textContent = 'Hanem Journal';
@@ -1663,7 +1786,7 @@
                 document.querySelector('.hero-micro').textContent = 'بدأنا رحلتنا في أغسطس 2025 · 100+ متطوع ملهم · 100+ قصة نجاح';
                 
                 // Update navigation
-                const navLinks = document.querySelectorAll('.desktop-nav a');
+                const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-menu a');
                 navLinks[0].textContent = 'الرئيسية';
                 navLinks[1].textContent = 'التطوع';
                 navLinks[2].textContent = 'Hanem Journal';
